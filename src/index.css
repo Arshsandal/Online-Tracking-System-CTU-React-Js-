@@ -1,0 +1,335 @@
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+@import "tailwindcss";
+
+
+.navbar a, 
+.navbar button, 
+.navbar .dropbtn, 
+.navbar .dropdown-content a {
+    font-family: 'Philosopher', sans-serif !important;
+}
+
+
+  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
+*/
+*,
+ul {
+  @apply box-border m-0 p-0;
+  list-style: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.navbar {
+  @apply flex justify-between items-center bg-[#a2e53f] px-5 py-[15px];
+}
+.logo {
+  @apply flex items-center;
+}
+.logo img {
+  @apply h-[50px] mr-[18px];
+}
+.ctu-nav {
+  @apply flex flex-col text-base text-[#333];
+}
+.bold {
+  @apply font-[bold] text-lg;
+}
+.s-bold {
+  @apply text-base text-[#666];
+}
+.navbar-ul {
+  @apply flex gap-5;
+}
+.navbar-ul a {
+  @apply no-underline text-black font-[bold] hover:text-white;
+}
+.navbar-ul li {
+  @apply font-normal;
+}
+.hero {
+  @apply w-screen h-screen bg-cover bg-center bg-no-repeat relative flex justify-center items-center text-center;
+  background-image: url('./assets/Images/1Copy.jpg'); 
+}
+.welcome-p {
+  @apply px-[120px] py-3;
+}
+.slider-content {
+  @apply mb-[70px];
+}
+.slider-content .welcome-p {
+  @apply text-xl mb-[90px] pb-[70px];
+}
+.welcome-text h1 {
+  @apply text-[55px];
+}
+
+
+
+.search-buses {
+  @apply absolute -translate-x-1/2 -translate-y-1/2 max-w-[calc(100%-400px)] max-w-[1800px] 
+         text-center shadow-md backdrop-blur-md border border-white/20 z-[1] pb-6 p-5 rounded-lg 
+         left-1/2 top-[65%] bg-white/10;
+}
+
+.search-buses form {
+  @apply flex flex-col;
+}
+
+.RL {
+  @apply p-0;
+}
+
+.search-buses fieldset {
+  @apply flex justify-around flex-wrap border-none;
+}
+
+.search-buses input {
+  @apply text-base border my-1.5 p-2 rounded border-gray-300;
+}
+
+.search-buses label {
+  @apply flex items-center font-semibold text-xl mb-1 text-white;
+}
+
+legend {
+  @apply text-lg font-bold text-white mb-2.5;
+}
+
+.search-btn {
+  @apply cursor-pointer text-white px-[70px] py-2.5 rounded-lg transition-all 
+         duration-300 ease-in-out mt-4 outline-none bg-white/30 hover:bg-white/50;
+}
+
+.search-buses select {
+  @apply bg-white m-2 px-3 py-1 rounded border-none;
+}
+
+
+
+
+.hero h1 {
+  @apply text-[2rem] text-white mb-2.5;
+}
+
+
+.hero p {
+  @apply text-base text-white;
+}
+
+
+@media (max-width: 768px) {
+  .glass-container {
+    @apply w-[90%] p-[30px];
+  }
+  .hero h1 {
+    @apply text-2xl;
+  }
+  .hero p {
+    @apply text-[0.9rem];
+  }
+  .hero {
+    @apply w-screen h-screen bg-[url('Images/1Copy.jpg')] bg-cover bg-center bg-no-repeat relative flex justify-center items-center text-center;
+  }
+}
+@media (max-width: 662px) {
+  .search-buses {
+    @apply hidden;
+  }
+  .hero {
+    @apply w-screen h-screen bg-[url('Images/1Copy.jpg')] bg-cover bg-center bg-no-repeat relative flex justify-center items-center text-center;
+  }
+  .navbar-ul li {
+    @apply font-normal text-[13px];
+  }
+  .bold {
+    @apply font-[bold] text-[13px];
+  }
+  .s-bold {
+    @apply text-xs text-[#666];
+  }
+}
+@media (max-width: 480px) {
+  /* Navbar */
+  .navbar {
+    @apply flex-col text-center p-2.5;
+  }
+  .logo {
+    @apply flex items-center gap-2.5;
+  }
+  .hero {
+    @apply h-screen w-screen h-screen p-5;
+  }
+  .logo img {
+    @apply h-10 mr-0;
+  }
+  .navbar-ul {
+    @apply flex-col gap-2.5 items-center mt-2.5;
+  }
+
+  .welcome-text h1 {
+    @apply text-[32px];
+  }
+  .welcome-p {
+    @apply px-5 py-3;
+  }
+
+
+  .search-buses {
+    @apply w-[90%] p-[15px] top-[70%];
+  }
+  .search-buses form {
+    @apply flex-col;
+  }
+  .search-buses fieldset {
+    @apply flex-col items-center;
+  }
+  .search-buses input,
+  .search-buses select {
+    @apply w-full text-sm p-2.5;
+  }
+  .search-btn {
+    @apply w-full p-3;
+  }
+
+  .glass-container {
+    @apply w-[95%] p-5;
+  }
+  .hero h1 {
+    @apply text-[1.3rem];
+  }
+  .hero p {
+    @apply text-[0.8rem];
+  }
+}
+.navbar-ul li span {
+  @apply ml-2;
+}
+.register-main {
+  @apply w-full h-[110vh] bg-center bg-cover bg-fixed flex justify-end;
+  background-image: url('./assets/Images/1Copy.jpg'); /* Use relative path */
+}
+.form-box {
+  @apply h-[80vh] shadow-[0_4px_10px_rgba(0,0,0,0.1)] ml-0 mr-5 my-5 p-5 rounded-lg border-2 border-solid border-white w-[450px] h-[610px] shadow-[0_4px_10px_rgba(0,0,0,0.1)] mr-5 mt-5 p-5 rounded-lg text-white border-2 border-solid border-white;
+  background: white;
+}
+.form-box img {
+  @apply mx-auto my-0;
+}
+.input-group {
+  @apply mb-[15px] mb-[15px];
+}
+.input-group label {
+  @apply block mb-[5px] block text-sm mb-[5px] text-white;
+}
+.input-group input {
+  @apply text-white w-full border p-2.5 rounded-[5px] border-solid border-[#ccc] w-full border p-2.5 rounded-[5px] border-solid border-[#ccc];
+}
+.btn {
+  @apply w-full text-[white] cursor-pointer p-2.5 rounded-[5px] border-[none] w-full bg-[#00a650] text-[white] text-base cursor-pointer transition-[background] duration-[0.3s] p-2.5 rounded-[5px] border-[none] hover:bg-[#008c4a];
+  background: #007bff;
+}
+.btn:hover {
+  background: #0056b3;
+}
+.login-link {
+  @apply text-center mt-2.5;
+}
+.form-box {
+  background: white;
+}
+.form-box h2 {
+  @apply text-center mb-5;
+}
+.signup-link {
+  @apply text-center mt-2.5;
+}
+.signup-link a {
+  @apply text-[#00a650] no-underline;
+}
+.login-main {
+  @apply w-full h-[110vh] bg-center bg-cover bg-fixed flex justify-end;
+  background-image: url('./assets/Images/1Copy.jpg'); /* Use relative path */
+}
+.user {
+  @apply h-[30px] w-[30px] relative rounded-[50%] bottom-0.5;
+}
+.dropdown {
+  @apply float-left overflow-hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  @apply text-base text-black bg-inherit m-0 border-[none];
+  outline: none;
+  font-family: inherit;
+
+  /* Important for vertical align on mobile phones */
+
+  /* Important for vertical align on mobile phones */
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  @apply hidden absolute bg-[#f9f9f9] min-w-[160px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.2)] z-[1] mx-0 my-1.5 rounded-[5px] hover:rounded-[5px];
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  @apply float-none text-sm text-[black] no-underline block text-left px-4 py-3 hover:bg-[#a2e53f] hover:text-white;
+}
+
+/* Add a grey background color to dropdown links on hover */
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  @apply block;
+}
+
+/* Ensure all form labels are white */
+label {
+  @apply text-white;
+}
+
+/* Ensure Ant Design form labels are also white */
+/* Make all form labels white */
+.ant-form-item-label > label {
+  color: white !important;
+}
+
+/* Ensure the colon (:) after labels is also white */
+.ant-form-item-label > label::after {
+  color: white !important;
+}
+
+/* Improve form input styling */
+.ant-input,
+.ant-input-password {
+  color: white !important;
+}
+
+.ant-input::placeholder,
+.ant-input-password input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+
+
+/* Ensure input text is black */
+.ant-input,
+.ant-input-password input,
+.ant-input::placeholder,
+.ant-input-password input::placeholder {
+  color: black !important; /* Text inside input fields */
+}
+
+/* Ensure input text is visible when typing */
+.ant-input:focus,
+.ant-input-password input:focus {
+  color: black !important;
+}
+
+/* Optional: Make placeholder text a bit lighter for better contrast */
+.ant-input::placeholder,
+.ant-input-password input::placeholder {
+  color: gray !important;
+}
