@@ -29,7 +29,9 @@ const Navbar = () => {
                   <hr />
                   <a href="#">Schedules & Stops</a>
                   <hr />
-                  <a href="#">Discover Chandigarh</a>
+                  <NavLink to="/discover-chandigarh" className="text-black hover:text-white">
+                  Discover Chandigarh
+                </NavLink>
                 </div>
               </li>
 
