@@ -29,7 +29,7 @@ const Navbar = () => {
                   <hr />
                   <a href="#">Schedules & Stops</a>
                   <hr />
-                  <NavLink to="/discover-chandigarh" className="text-black hover:text-white">
+                  <NavLink to="/discoverChandigarh" className="text-black hover:text-white">
                   Discover Chandigarh
                 </NavLink>
                 </div>
@@ -40,9 +40,13 @@ const Navbar = () => {
                   Services <i className="fa-solid fa-chevron-down"></i>
                 </button>
                 <div className="dropdown-content">
-                  <a href="#">All Services</a>
+                <NavLink to="/allServices" className="text-black hover:text-white">
+                  All Services
+                </NavLink>
                   <hr />
-                  <a href="#">Fix Lounge</a>
+                  <NavLink to="/fixLounge" className="text-black hover:text-white">
+                  Fix Lounge 
+                </NavLink>
                   <hr />
                   <a href="#">On Board</a>
                   <hr />

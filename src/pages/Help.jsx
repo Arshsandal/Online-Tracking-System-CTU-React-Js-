@@ -8,19 +8,14 @@ const Help = () => {
     <>
       <Navbar />
       <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#a2e53f] via-[#a2e53f] to-[#a2e53f]">
-        
       <Svg />
-        {/* Content Wrapper */}
         <div className="relative max-w-7xl w-full mx-auto px-6 py-12">
-          {/* Page Header */}
           <div className="text-center text-white">
             <h1 className="text-5xl font-bold mb-4">Help & Support</h1>
             <p className="text-lg opacity-90">
               Find answers, explore guides, and get technical assistance.
             </p>
           </div>
-
-          {/* Search Bar */}
           <div className="mt-8 flex justify-center">
             <input
               type="text"
@@ -28,8 +23,6 @@ const Help = () => {
               className="w-full max-w-lg px-4 py-3 rounded-lg shadow-lg border-none focus:outline-none focus:ring-4 focus:ring-white bg-white bg-opacity-80 backdrop-blur-md text-gray-700 placeholder-gray-500"
             />
           </div>
-
-          {/* Help Sections */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
             {[
               { title: "Getting Started", desc: "Learn how to use our platform efficiently.", link: "/getting-started" },
@@ -51,8 +44,6 @@ const Help = () => {
               </div>
             ))}
           </div>
-
-          {/* Support Ticket Form */}
           <div className="bg-white bg-opacity-90 backdrop-blur-lg shadow-xl rounded-lg p-8 mt-10">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">Submit a Ticket</h2>
             <p className="text-gray-700 mb-4">

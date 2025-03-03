@@ -7,6 +7,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Help from "./pages/Help";
 import DiscoverChandigarh from "./pages/DiscoverChandigarh";
+import AllServices from "./pages/AllServices";
+import FixLounge from "./pages/FixLounge";
 
 const root = document.getElementById("root");
 
@@ -17,7 +19,9 @@ ReactDOM.createRoot(root).render(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/help" element={<Help />} />
-      <Route path="/discover-chandigarh" element={<DiscoverChandigarh />} />
+      <Route path="/discoverChandigarh" element={<DiscoverChandigarh />} />
+      <Route path="/allServices" element={<AllServices />} />
+      <Route path="/fixLounge" element={<FixLounge />} />
     </Routes>
   </BrowserRouter>
 );
