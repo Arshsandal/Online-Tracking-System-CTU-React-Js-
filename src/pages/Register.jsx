@@ -4,9 +4,17 @@ import logo from "../assets/Images/Logo_1.png";
 import { NavLink } from "react-router";  
 import { Button, Checkbox, Form, Input } from "antd";
 import bgImage from "../assets/Images/1Copy.jpg"
+import axios from "axios";
 
 const onFinish = (values) => {
   console.log("Success:", values);
+  try {
+    axios.post("http://localhost:5000/api/auth/register",values
+    ).then((response) => console.log(response)
+    )
+  } catch (error) {
+    console.log(error);
+  }
 };
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
