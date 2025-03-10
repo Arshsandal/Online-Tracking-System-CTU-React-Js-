@@ -333,3 +333,10 @@ label {
 .ant-input-password input::placeholder {
   color: gray !important;
 }
+
+
+
+.dropdown-content a, 
+.dropdown-content button {
+  @apply block w-full px-4 py-2 text-gray-800 hover:bg-[#a2e53f] hover:text-white transition-colors duration-200;
+}

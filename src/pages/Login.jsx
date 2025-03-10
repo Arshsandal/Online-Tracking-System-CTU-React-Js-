@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink } from "react-router";  
+import { NavLink } from "react-router";
+import { useNavigate } from "react-router-dom"
 import Navbar from "../components/Navbar";
 import logo from "../assets/Images/Logo_1.png";
 import { Button, Checkbox, Form, Input, notification, Space } from "antd";
@@ -9,7 +10,7 @@ import axios from "axios";
 
 const Login = () => {
   const [api, contextHolder] = notification.useNotification();
-
+  const navigate = useNavigate(); 
   const openNotificationWithIcon = (type, title, description) => {
     api[type]({
       message: title,
@@ -24,7 +25,12 @@ const Login = () => {
   
       if (response.data.success) {
         openNotificationWithIcon("success", "Login Successful", "You have successfully logged in! 🎉");
-      } else {
+        sessionStorage.setItem("username", response.data.username);
+        setTimeout(() => {
+          navigate(response.data.redirectTo || "/home"); 
+        }, 1500); 
+      } 
+ else {
         openNotificationWithIcon("error", "Login Failed", response.data.message || "Invalid email or password.");
       }
     } catch (error) {

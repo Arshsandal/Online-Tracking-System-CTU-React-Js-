@@ -5,16 +5,17 @@ const login = async (req, res, next) => {
   try {
     const loginResponse = await loginValidation.validateAsync(req.body);
     console.log(loginResponse);
-    const { email, password, remember } = loginResponse;
+    const { email, password } = loginResponse;
 
-    const existingEmail = await User.findOne({ email })
+    const existingUser = await User.findOne({email})
     const existingPassword = await User.findOne({ password })
 
+    console.log("existingEmail", existingUser.email);
     console.log("existingPassword", existingPassword.password);
-    console.log("existingEmail", existingEmail.email);
+    console.log("existingUser", existingUser.username);
 
 
-    if (!existingEmail) {
+    if (!existingUser) {
       return res.status(200).json({
         success: false,
         message: "Invalid Email Address. Please register.",
@@ -31,6 +32,8 @@ const login = async (req, res, next) => {
       success: true,
       message: "Login successfully 🎉",
       isNewUser: true,
+      username: existingUser.username,
+      redirectTo: "/home",
     });
 
   } catch (error) {
