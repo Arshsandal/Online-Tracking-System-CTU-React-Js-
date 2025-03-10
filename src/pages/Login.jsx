@@ -2,18 +2,44 @@ import React from "react";
 import { NavLink } from "react-router";  
 import Navbar from "../components/Navbar";
 import logo from "../assets/Images/Logo_1.png";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Checkbox, Form, Input, notification, Space } from "antd";
 import bgImage from "../assets/Images/1Copy.jpg";
+import axios from "axios";
 
-const onFinish = (values) => {
-  console.log("Success:", values);
-};
-
-const onFinishFailed = (errorInfo) => {
-  console.log("Failed:", errorInfo);
-};
 
 const Login = () => {
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotificationWithIcon = (type, title, description) => {
+    api[type]({
+      message: title,
+      description: description,
+    });
+  };
+
+  const onFinish = async (values) => {
+    console.log("Success:", values);
+    try {
+      const response = await axios.post("http://localhost:5000/api/auth/login", values);
+  
+      if (response.data.success) {
+        openNotificationWithIcon("success", "Login Successful", "You have successfully logged in! 🎉");
+      } else {
+        openNotificationWithIcon("error", "Login Failed", response.data.message || "Invalid email or password.");
+      }
+    } catch (error) {
+      console.error("Registration failed:", error);
+      if (error.response) {
+        openNotificationWithIcon("error", "Login Failed", error.response.data.message || "User is not registered. Please Register.");
+      } else {
+        openNotificationWithIcon("error", "Network Error", "Unable to connect to the server. Please check your internet.");
+      }
+    }
+  };
+  
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
+  };
   return (
     <>
       <Navbar />
@@ -21,6 +47,8 @@ const Login = () => {
         className="flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat p-6"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
+          {contextHolder}
+
         <Form
           name="basic"
           onFinish={onFinish}
@@ -31,12 +59,11 @@ const Login = () => {
           </div>
 
           <Form.Item
-            label={<span className="text-white">Username</span>}
-            name="username"
-            rules={[{ required: true, message: "Please input your username!" }]}
-            labelCol={{ className: "text-white" }}  
+            label="Email"
+            name="email"
+            rules={[{ required: true, message: "Please input your email!" }]}
           >
-            <Input className="bg-transparent text-white border-white/50 placeholder-white focus:ring-0" />
+            <Input className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200" />
           </Form.Item>
 
           <Form.Item

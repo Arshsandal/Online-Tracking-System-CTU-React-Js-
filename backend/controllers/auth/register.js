@@ -12,11 +12,16 @@ const register = async (req, res, next) => {
       email,
     });
 
-    if (existingUser ) {
-      throw new Error(`${email} is already exist. Please login.`);
+    if (existingUser) {
+      console.log("User already registered");  // ✅ Log before sending response
+      return res.status(200).json({
+        message: "User already registered. Please login.",
+        isNewUser: false,
+      });
     }
+    
 
-    const user = new User({
+    const newUser = new User({
       username,
       dob,
       email,
@@ -25,12 +30,15 @@ const register = async (req, res, next) => {
       remember
     });
 
-    await user.save();
+    await newUser.save();
 
-    res.status(200).json({
-      message: "good",
-      success: true
-    })
+    console.log("User Register Successfully"); 
+    return res.status(201).json({
+      message: "User registered successfully 🎉",
+      isNewUser: true,
+    });
+    
+    
   } catch (error) {
     next(error);
   }
