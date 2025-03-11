@@ -19,13 +19,13 @@ const TripTracker = () => {
     }
   }, []);
 
-  // Filtering Routes based on Search
-  const filteredRoutes = ctuRoutes.filter(
-    (route) =>
-      route.route_number.includes(search) ||
-      route.start.toLowerCase().includes(search.toLowerCase()) ||
-      route.end.toLowerCase().includes(search.toLowerCase())
-  );
+const filteredRoutes = ctuRoutes.filter((route) =>
+  route.route_number.includes(search) ||
+  route.start.toLowerCase().includes(search.toLowerCase()) ||
+  route.end.toLowerCase().includes(search.toLowerCase()) ||
+  route.via.some((station) => station.toLowerCase().includes(search.toLowerCase()))
+);
+
 
   return (
     <>

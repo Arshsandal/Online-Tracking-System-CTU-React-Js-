@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import logo from "../assets/Images/Logo_1.png";
+import { useNavigate } from "react-router-dom"
 import { NavLink } from "react-router";
 import { Button, Checkbox, Form, Input, DatePicker, notification } from "antd";
 import bgImage from "../assets/Images/1Copy.jpg"
@@ -10,7 +11,7 @@ import axios from "axios";
 const Register = () => {
 
   const [api, contextHolder] = notification.useNotification();
-
+    const navigate = useNavigate(); 
   const openNotificationWithIcon = (type, title, description) => {
     api[type]({
       message: title,
@@ -25,7 +26,10 @@ const Register = () => {
       const response = await axios.post("http://localhost:5000/api/auth/register", values);
 
       if (response.data.isNewUser) {
-        openNotificationWithIcon("success", "Registration Successful", "You have registered successfully! 🎉"); // Show success message
+        openNotificationWithIcon("success", "Registration Successful", "You have registered successfully! 🎉"); 
+        setTimeout(() => {
+          navigate(response.data.redirectTo || "/login"); 
+        }, 1500); 
       } else {
         openNotificationWithIcon("info", "User Already Exists", "This email is already registered. Please log in.");
       }
