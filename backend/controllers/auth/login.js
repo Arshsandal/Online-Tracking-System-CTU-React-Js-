@@ -33,6 +33,7 @@ const login = async (req, res, next) => {
       message: "Login successfully 🎉",
       isNewUser: true,
       username: existingUser.username,
+      email: existingUser.email,
       redirectTo: "/home",
     });
 

@@ -1,0 +1,880 @@
+[
+    {
+        "route_number": "7",
+        "start": "Ram Darbar",
+        "end": "ISBT 17",
+        "via": [
+            "Sector 47 market, SD College, 20 market, Sector 21/22 Aroma}"
+        ]
+    },
+    {
+        "route_number": "7",
+        "start": "New Maloya Colony",
+        "end": "Ramdarbar",
+        "via": [
+            "Maloya, ISBT 17, Sector 32"
+        ]
+    },
+    {
+        "route_number": "7",
+        "start": "Ramdarbar",
+        "end": "New Maloya Colony",
+        "via": [
+            "Sector 47/46,sector 30/29,sector 23/23 sector 38 west ,maloya"
+        ]
+    },
+    {
+        "route_number": "7",
+        "start": "CTU Workshop",
+        "end": "New Maloya Colony",
+        "via": []
+    },
+    {
+        "route_number": "7",
+        "start": "New Maloya Colony",
+        "end": "ISBT 17",
+        "via": [
+            "Maloya, Sector 38/25, Sector 23 MKT"
+        ]
+    },
+    {
+        "route_number": "7",
+        "start": "ISBT 17",
+        "end": "WORKSHOP",
+        "via": []
+    },
+    {
+        "route_number": "7",
+        "start": "ISBT-17",
+        "end": "New Maloya Colony",
+        "via": [
+            "SEC 22/23, SEC 38/25"
+        ]
+    },
+    {
+        "route_number": "01",
+        "start": "Mani Majra",
+        "end": "New Maloya Colony",
+        "via": [
+            "Railway Station, ISBT-17, PGI"
+        ]
+    },
+    {
+        "route_number": "01",
+        "start": "ISBT-17",
+        "end": "Mani Majra",
+        "via": [
+            "Sector 19 market, Railway Station"
+        ]
+    },
+    {
+        "route_number": "01",
+        "start": "New Maloya Colony",
+        "end": "ISBT 17",
+        "via": [
+            "PGI, Sector 16 Hospital"
+        ]
+    },
+    {
+        "route_number": "01",
+        "start": "New Maloya Colony",
+        "end": "CTU Workshop",
+        "via": [
+            "Dadu Majra village"
+        ]
+    },
+    {
+        "route_number": "01",
+        "start": "New Maloya Colony",
+        "end": "Mani Majra",
+        "via": [
+            "PGI, I.S.B.T. 17, Railway Station"
+        ]
+    },
+    {
+        "route_number": "01",
+        "start": "CTU Workshop",
+        "end": "New Maloya Colony",
+        "via": [
+            "Dadu Majra village"
+        ]
+    },
+    {
+        "route_number": "06",
+        "start": "Raipur Kalan",
+        "end": "New Maloya Colony",
+        "via": [
+            "Tribune Chowk, Ramdarbar,, Sector 33 Market"
+        ]
+    },
+    {
+        "route_number": "06",
+        "start": "New Maloya Colony",
+        "end": "ISBT 43",
+        "via": [
+            "Sector 38 Market, Sector 42 Market"
+        ]
+    },
+    {
+        "route_number": "06",
+        "start": "New Maloya Colony",
+        "end": "Raipur Kalan",
+        "via": [
+            "Sector 33 Market, Ramdarbar, Tribune Chowk,"
+        ]
+    },
+    {
+        "route_number": "06",
+        "start": "Depot-3",
+        "end": "New Maloya Colony",
+        "via": []
+    },
+    {
+        "route_number": "06",
+        "start": "ISBT-43",
+        "end": "Workshop",
+        "via": []
+    },
+    {
+        "route_number": "06",
+        "start": "ISBT-43",
+        "end": "New Maloya Colony",
+        "via": [
+            "Sector 41/42, Sector 38 West Light Point"
+        ]
+    },
+    {
+        "route_number": "06",
+        "start": "Workshop",
+        "end": "ISBT 43",
+        "via": []
+    },
+    {
+        "route_number": "06",
+        "start": "Raipur Kalan",
+        "end": "ISBT-43",
+        "via": [
+            "Tribune Chowk, Ramdarbar, Sector 33 Market"
+        ]
+    },
+    {
+        "route_number": "08",
+        "start": "PGI",
+        "end": "ISBT-43",
+        "via": [
+            "ISBT 17, Sector 34/35"
+        ]
+    },
+    {
+        "route_number": "08",
+        "start": "Khuda Ali Sher",
+        "end": "Phase 11",
+        "via": [
+            "ISBT 17, Sector 34/35, ISBT 43"
+        ]
+    },
+    {
+        "route_number": "08",
+        "start": "PGI",
+        "end": "Phase 11",
+        "via": [
+            "ISBT 17, Sector 34/35, ISBT 43"
+        ]
+    },
+    {
+        "route_number": "08",
+        "start": "PGI",
+        "end": "ISBT-17",
+        "via": [
+            "10/16"
+        ]
+    },
+    {
+        "route_number": "08",
+        "start": "Sector-22/17",
+        "end": "Khuda Aliser",
+        "via": [
+            "PGI, New OPD"
+        ]
+    },
+    {
+        "route_number": "08",
+        "start": "Sector-22/17",
+        "end": "PGI",
+        "via": [
+            "16/10"
+        ]
+    },
+    {
+        "route_number": "08",
+        "start": "PHASE 11 MOHALI",
+        "end": "PGI",
+        "via": [
+            "ISBT 43, AROMA, 16 HOSPITAL"
+        ]
+    },
+    {
+        "route_number": "08",
+        "start": "Khuda Ali Sher",
+        "end": "ISBT 43",
+        "via": [
+            "New OPD, PGI, 16 Hospital, ISBT 17, Aroma"
+        ]
+    },
+    {
+        "route_number": "08",
+        "start": "ISBT-43",
+        "end": "PGI",
+        "via": [
+            "Aroma, 16 Hospital, NEW OPD"
+        ]
+    },
+    {
+        "route_number": "08",
+        "start": "ISBT-43",
+        "end": "Phase 11",
+        "via": []
+    },
+    {
+        "route_number": "08",
+        "start": "Phase-11",
+        "end": "ISBT 22/17",
+        "via": []
+    },
+    {
+        "route_number": "10",
+        "start": "ISBT-43",
+        "end": "Mani Majra",
+        "via": [
+            "Ramdarbar, Tribune chowk, Railway Station"
+        ]
+    },
+    {
+        "route_number": "10",
+        "start": "ISBT-43",
+        "end": "CTU Workshop",
+        "via": []
+    },
+    {
+        "route_number": "10",
+        "start": "Mani Majra",
+        "end": "ISBT-43",
+        "via": [
+            "Ramdarbar"
+        ]
+    },
+    {
+        "route_number": "10",
+        "start": "CTU Workshop",
+        "end": "ISBT-43",
+        "via": []
+    },
+    {
+        "route_number": "11",
+        "start": "Railway Station",
+        "end": "Civil Secretariat",
+        "via": [
+            "Sector 26 G/Market,Sec27/26,Sec 18/8,ISBT17"
+        ]
+    },
+    {
+        "route_number": "11",
+        "start": "Civil Secretariat",
+        "end": "Railway Station",
+        "via": [
+            "UT Secretariat, ISBT 17, Sec26 market, CTU workshop"
+        ]
+    },
+    {
+        "route_number": "17",
+        "start": "ISBT-43",
+        "end": "Workshop",
+        "via": []
+    },
+    {
+        "route_number": "17",
+        "start": "ISBT-43",
+        "end": "Behlana",
+        "via": [
+            "Sector- 22/17, Elante Mall, Sector 20 Market, Sector 21 Market, Sector 30 Market"
+        ]
+    },
+    {
+        "route_number": "17",
+        "start": "Workshop",
+        "end": "ISBT - 43",
+        "via": []
+    },
+    {
+        "route_number": "17",
+        "start": "Behlana",
+        "end": "ISBT 43",
+        "via": [
+            "Elante Mall, Aroma, I.S.B.T. 17"
+        ]
+    },
+    {
+        "route_number": "18",
+        "start": "ISBT-17",
+        "end": "ISBT 43",
+        "via": [
+            "Sector 36/35"
+        ]
+    },
+    {
+        "route_number": "18",
+        "start": "ISBT-43",
+        "end": "ISBT 17",
+        "via": [
+            "Sector 36/35"
+        ]
+    },
+    {
+        "route_number": "18",
+        "start": "ISBT-43",
+        "end": "Sukhna lake",
+        "via": [
+            "Sector 36/35, ISBT 17, Mini Sectt"
+        ]
+    },
+    {
+        "route_number": "18",
+        "start": "Sukhna lake",
+        "end": "ISBT 17",
+        "via": [
+            "Mini Sectt, Sector 9 Market"
+        ]
+    },
+    {
+        "route_number": "18",
+        "start": "Kaimbwala",
+        "end": "ISBT-17",
+        "via": [
+            "Sukhna Lake, Mini Secretariat"
+        ]
+    },
+    {
+        "route_number": "18",
+        "start": "Sukhna-lake",
+        "end": "ISBT 43",
+        "via": [
+            "High Court, UT secretariat, ISBT 17 , Sector 35/36"
+        ]
+    },
+    {
+        "route_number": "18",
+        "start": "Kaimbwala",
+        "end": "ISBT-43",
+        "via": []
+    },
+    {
+        "route_number": "18",
+        "start": "ISBT-43",
+        "end": "Kaimbwala",
+        "via": []
+    },
+    {
+        "route_number": "18",
+        "start": "ISBT-17",
+        "end": "Kaimbwala",
+        "via": [
+            "Sector 17/18, MLA Flat, Sukhna Lake"
+        ]
+    },
+    {
+        "route_number": "20",
+        "start": "ISBT-43",
+        "end": "Kharar",
+        "via": [
+            "Sohana"
+        ]
+    },
+    {
+        "route_number": "20",
+        "start": "ISBT-17",
+        "end": "Kharar",
+        "via": [
+            "Sector 21 Market, ISBT-43"
+        ]
+    },
+    {
+        "route_number": "20",
+        "start": "Kharar",
+        "end": "ISBT-17",
+        "via": [
+            "Sohana, ISBT-43"
+        ]
+    },
+    {
+        "route_number": "20",
+        "start": "Kharar",
+        "end": "ISBT-43",
+        "via": [
+            "Sohana"
+        ]
+    },
+    {
+        "route_number": "22",
+        "start": "ISBT-43",
+        "end": "IT Park",
+        "via": [
+            "ISBT-17"
+        ]
+    },
+    {
+        "route_number": "22",
+        "start": "IT Park",
+        "end": "ISBT-43",
+        "via": [
+            "ISBT-17"
+        ]
+    },
+    {
+        "route_number": "26",
+        "start": "PGI",
+        "end": "Railway Station",
+        "via": [
+            "ISBT-17"
+        ]
+    },
+    {
+        "route_number": "18",
+        "start": "Kaimbwala",
+        "end": "ISBT-43",
+        "via": []
+    },
+    {
+        "route_number": "18",
+        "start": "ISBT-43",
+        "end": "Kaimbwala",
+        "via": []
+    },
+    {
+        "route_number": "18",
+        "start": "ISBT-17",
+        "end": "Kaimbwala",
+        "via": [
+            "Sector 17/18, MLA Flat, Sukhna Lake"
+        ]
+    },
+    {
+        "route_number": "20",
+        "start": "ISBT-43",
+        "end": "Kharar",
+        "via": [
+            "Sohana"
+        ]
+    },
+    {
+        "route_number": "20",
+        "start": "ISBT-17",
+        "end": "Kharar",
+        "via": [
+            "Sector 21 Market, ISBT-43"
+        ]
+    },
+    {
+        "route_number": "20",
+        "start": "Kharar",
+        "end": "ISBT-17",
+        "via": [
+            "Sohana, ISBT-43"
+        ]
+    },
+    {
+        "route_number": "20",
+        "start": "Kharar",
+        "end": "ISBT-43",
+        "via": [
+            "Sohana"
+        ]
+    },
+    {
+        "route_number": "22",
+        "start": "ISBT-43",
+        "end": "IT Park",
+        "via": [
+            "ISBT-17"
+        ]
+    },
+    {
+        "route_number": "22",
+        "start": "IT Park",
+        "end": "ISBT-43",
+        "via": [
+            "ISBT-17"
+        ]
+    },
+    {
+        "route_number": "26",
+        "start": "PGI",
+        "end": "Railway Station",
+        "via": [
+            "ISBT-17"
+        ]
+    },
+    {
+        "route_number": "28",
+        "start": "Workshop",
+        "end": "New Maloya Colony",
+        "via": []
+    },
+    {
+        "route_number": "28",
+        "start": "Mani Majra",
+        "end": "New Maloya Colony",
+        "via": [
+            "ISBT-17"
+        ]
+    },
+    {
+        "route_number": "28",
+        "start": "ISBT-17",
+        "end": "New Maloya Colony",
+        "via": [
+            "Sector 22/23, Sector-36 Market, Sector-38 West"
+        ]
+    },
+    {
+        "route_number": "28",
+        "start": "Mani Majra",
+        "end": "ISBT-17",
+        "via": [
+            "Railway Station, Sector-26 Grain Market"
+        ]
+    },
+    {
+        "route_number": "28",
+        "start": "New Maloya Colony",
+        "end": "Workshop",
+        "via": []
+    },
+    {
+        "route_number": "28",
+        "start": "New Maloya Colony",
+        "end": "Mani Majra",
+        "via": [
+            "ISBT-17, Railway Station, Housing Board"
+        ]
+    },
+    {
+        "route_number": "2A",
+        "start": "Mani Majra",
+        "end": "Sector 22/17",
+        "via": [
+            "Mani Majra Town, Railway Crossing, Sector-26 Grain Market"
+        ]
+    },
+    {
+        "route_number": "2A",
+        "start": "Sector 22/17",
+        "end": "Mani Majra",
+        "via": [
+            "Sector 15/11, PGI, Sector 19/20, Elante Mall, Housing Board"
+        ]
+    },
+    {
+        "route_number": "2A",
+        "start": "Mani Majra",
+        "end": "ISBT-17",
+        "via": [
+            "Sector 8/18, PGI, Dhanas"
+        ]
+    },
+    {
+        "route_number": "2A",
+        "start": "ISBT-17",
+        "end": "Mani Majra",
+        "via": [
+            "Sector 18/21, Elante Mall, Railway Station"
+        ]
+    },
+    {
+        "route_number": "2A",
+        "start": "CTU Workshop",
+        "end": "Mani Majra",
+        "via": [
+            "Railway Station, Housing Board Chowk"
+        ]
+    },
+    {
+        "route_number": "2A",
+        "start": "Mani Majra",
+        "end": "CTU Workshop",
+        "via": [
+            "PGI, ISBT-17, Elante Mall"
+        ]
+    },
+    {
+        "route_number": "2A",
+        "start": "Railway Station",
+        "end": "Mani Majra",
+        "via": []
+    },
+    {
+        "route_number": "2C",
+        "start": "Mani Majra",
+        "end": "Sector 22/17",
+        "via": [
+            "Railway Station"
+        ]
+    },
+    {
+        "route_number": "2C",
+        "start": "Mani Majra",
+        "end": "ISBT-17",
+        "via": [
+            "Dhanas, PGI"
+        ]
+    },
+    {
+        "route_number": "2C",
+        "start": "Mani Majra",
+        "end": "Mani Majra",
+        "via": [
+            "Railway Station, Sector 30/27, Sector 22/17, PGI, ISBT-17"
+        ]
+    },
+    {
+        "route_number": "2C",
+        "start": "CTU Workshop",
+        "end": "ISBT-17",
+        "via": [
+            "Sector 20/19, Sector 22/17, Daddu Majra"
+        ]
+    },
+    {
+        "route_number": "2C",
+        "start": "Mani Majra",
+        "end": "CTU Workshop",
+        "via": [
+            "Housing Board Chowk, Railway Station"
+        ]
+    },
+    {
+        "route_number": "2C",
+        "start": "CTU Workshop",
+        "end": "Mani Majra",
+        "via": [
+            "Sector 22/17, ISBT-17, Indira Colony"
+        ]
+    },
+    {
+        "route_number": "2C",
+        "start": "Sector 22/17",
+        "end": "Mani Majra",
+        "via": [
+            "Daddu Majra, PGI, Sector 26/28, Indira Colony"
+        ]
+    },
+    {
+        "route_number": "2C",
+        "start": "Sector 22/17",
+        "end": "PGI",
+        "via": [
+            "Sector 16/10 General Hospital"
+        ]
+    },
+    {
+        "route_number": "2F",
+        "start": "Platinum Homes/Sanauli",
+        "end": "Workshop",
+        "via": [
+            "Housing Board, Railway Station"
+        ]
+    },
+    {
+        "route_number": "2F",
+        "start": "PGI",
+        "end": "ISBT-17",
+        "via": []
+    },
+    {
+        "route_number": "2F",
+        "start": "PGI",
+        "end": "CTU Workshop",
+        "via": []
+    },
+    {
+        "route_number": "2F",
+        "start": "Panchkula Sector-4",
+        "end": "Railway Station",
+        "via": [
+            "Sector 15/10, Housing Board"
+        ]
+    },
+    {
+        "route_number": "2F",
+        "start": "PGI",
+        "end": "Panchkula Sector-4",
+        "via": [
+            "ISBT-17, Grain Market, Railway Station"
+        ]
+    },
+    {
+        "route_number": "2F",
+        "start": "Dhakoli",
+        "end": "Railway Station",
+        "via": [
+            "Sector 21 Market, Housing Board"
+        ]
+    },
+    {
+        "route_number": "2F",
+        "start": "Platinum Homes/Sanauli",
+        "end": "PGI",
+        "via": []
+    },
+    {
+        "route_number": "2F",
+        "start": "PGI",
+        "end": "Platinum Homes/Sanauli",
+        "via": []
+    },
+    {
+        "route_number": "2F",
+        "start": "Railway Station",
+        "end": "PGI",
+        "via": [
+            "Sector 27/26, ISBT 17"
+        ]
+    },
+    {
+        "route_number": "2F",
+        "start": "Railway Station",
+        "end": "Sector 4 Panchkula",
+        "via": [
+            "Railway Crossing , Housing Board, Sector 11/12 Rally Chowk"
+        ]
+    },
+    {
+        "route_number": "2F",
+        "start": "Sector 4 Panchkula",
+        "end": "PGI",
+        "via": [
+            "Railway Station, ISBT 17, PEC, OPD"
+        ]
+    },
+    {
+        "route_number": "2F",
+        "start": "PGI",
+        "end": "Dhakoli Border",
+        "via": [
+            "OPD, I.S.B.T 17, Railway Station, Housing Board,"
+        ]
+    },
+    {
+        "route_number": "2F",
+        "start": "PGI",
+        "end": "Railway Station",
+        "via": [
+            "New OPD, 16 Hospital, ISBT 17"
+        ]
+    },
+    {
+        "route_number": "2F",
+        "start": "Railway Station",
+        "end": "Platinum Homes/Sanauli",
+        "via": []
+    },
+    {
+        "route_number": "2F",
+        "start": "CTU Workshop",
+        "end": "PGI",
+        "via": []
+    },
+    {
+        "route_number": "2F",
+        "start": "ISBT-17",
+        "end": "Platinum Homes/Sanauli",
+        "via": []
+    },
+    {
+        "route_number": "2F",
+        "start": "Platinum Homes/Sanauli",
+        "end": "Railway Station",
+        "via": []
+    },
+    {
+        "route_number": "2F",
+        "start": "Workshop",
+        "end": "Platinum Homes/Sanauli",
+        "via": []
+    },
+    {
+        "route_number": "2F",
+        "start": "Platinum Homes/Sanauli",
+        "end": "Sector 22/17",
+        "via": [
+            "Housing Board, Railway Station"
+        ]
+    },
+    {
+        "route_number": "2G",
+        "start": "PANCHKULA BUS STAND",
+        "end": "PGI",
+        "via": [
+            "HOUSING BOARD,SECTOR 26 GRAIN MARKET,SECTOR 16/10"
+        ]
+    },
+    {
+        "route_number": "2G",
+        "start": "Sector 26 Grain market",
+        "end": "PGI",
+        "via": [
+            "Sector-19/7, Sector- 8/18, Sector-17/9, Sector-16/10,Sector-15/11"
+        ]
+    },
+    {
+        "route_number": "2G",
+        "start": "PGI",
+        "end": "Housing Board",
+        "via": [
+            "Sector-11/15,Sector9/17,Sector 26/27,Kalagram, Housing Board Chowk"
+        ]
+    },
+    {
+        "route_number": "2G",
+        "start": "Panchkula Bus Stand",
+        "end": "Housing Board",
+        "via": [
+            "Geeta bhawan, Sector 8/7"
+        ]
+    },
+    {
+        "route_number": "2G",
+        "start": "PGI",
+        "end": "Panchkula Bus Stand",
+        "via": [
+            "Sector-11/15,16/10,9/17,Madhya Marg,Sector-8/18Geeta Bhawan PKL"
+        ]
+    },
+    {
+        "route_number": "2G",
+        "start": "Housing Board",
+        "end": "Panchkula Bus Stand",
+        "via": [
+            "Sector 7/8, Geeta bhawan"
+        ]
+    },
+    {
+        "route_number": "30",
+        "start": "ISBT-43",
+        "end": "Nada Sahib",
+        "via": []
+    },
+    {
+        "route_number": "30",
+        "start": "Nada Sahib",
+        "end": "ISBT 43",
+        "via": []
+    },
+    {
+        "route_number": "30",
+        "start": "ISBT-17",
+        "end": "ISBT 43",
+        "via": [
+            "Sector 23/22, 36/35, 42/43, Isbt 43"
+        ]
+    }
+]

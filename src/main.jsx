@@ -9,6 +9,8 @@ import Help from "./pages/Help";
 import DiscoverChandigarh from "./pages/DiscoverChandigarh";
 import AllServices from "./pages/AllServices";
 import FixLounge from "./pages/FixLounge";
+import ProfilePage from "./pages/Profile";
+import TripTracker from "./pages/TripTracker";
 
 const root = document.getElementById("root");
 
@@ -23,6 +25,8 @@ ReactDOM.createRoot(root).render(
       <Route path="/discoverChandigarh" element={<DiscoverChandigarh />} />
       <Route path="/allServices" element={<AllServices />} />
       <Route path="/fixLounge" element={<FixLounge />} />
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/tripTracker" element={<TripTracker />} />
     </Routes>
   </BrowserRouter>
 );

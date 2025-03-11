@@ -26,6 +26,7 @@ const Login = () => {
       if (response.data.success) {
         openNotificationWithIcon("success", "Login Successful", "You have successfully logged in! 🎉");
         sessionStorage.setItem("username", response.data.username);
+        sessionStorage.setItem("email", response.data.email);
         setTimeout(() => {
           navigate(response.data.redirectTo || "/home"); 
         }, 1500); 
@@ -69,7 +70,7 @@ const Login = () => {
             name="email"
             rules={[{ required: true, message: "Please input your email!" }]}
           >
-            <Input className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200" />
+            <Input className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200 max-w-[305px] float-right" />
           </Form.Item>
 
           <Form.Item
@@ -78,7 +79,7 @@ const Login = () => {
             rules={[{ required: true, message: "Please input your password!" }]}
             labelCol={{ className: "text-white" }}  
           >
-            <Input.Password className="bg-transparent text-white border-white/50 placeholder-white focus:ring-0" />
+            <Input.Password className="bg-transparent text-white border-white/50 placeholder-white focus:ring-0 max-w-[305px] float-right" />
           </Form.Item>
 
           <Form.Item name="remember" valuePropName="checked">

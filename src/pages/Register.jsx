@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import logo from "../assets/Images/Logo_1.png";
-import { NavLink } from "react-router";  
-import { Button, Checkbox, Form, Input, DatePicker, notification, Space } from "antd";
+import { NavLink } from "react-router";
+import { Button, Checkbox, Form, Input, DatePicker, notification } from "antd";
 import bgImage from "../assets/Images/1Copy.jpg"
 import axios from "axios";
 
@@ -17,21 +17,21 @@ const Register = () => {
       description: description,
     });
   };
-  
+
 
   const onFinish = async (values) => {
     console.log("Success:", values);
     try {
       const response = await axios.post("http://localhost:5000/api/auth/register", values);
-  
+
       if (response.data.isNewUser) {
         openNotificationWithIcon("success", "Registration Successful", "You have registered successfully! 🎉"); // Show success message
       } else {
-        openNotificationWithIcon("info", "User Already Exists", "This email is already registered. Please log in."); 
+        openNotificationWithIcon("info", "User Already Exists", "This email is already registered. Please log in.");
       }
     } catch (error) {
       console.error("Registration failed:", error);
-      openNotificationWithIcon("error", "Registration Failed", "An error occurred while processing your request."); 
+      openNotificationWithIcon("error", "Registration Failed", "An error occurred while processing your request.");
     }
   };
   const onFinishFailed = (errorInfo) => {
@@ -57,38 +57,38 @@ const Register = () => {
           </div>
 
           <Form.Item
-  label="Name"
-  name="username"
-  rules={[
-    { required: true, message: "Please input your username!" },
-    { 
-      pattern: /^[A-Za-z\s]+$/, 
-      message: "Username must contain only alphabets!" 
-    }
-  ]}
->
-  <Input className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200" />
-</Form.Item>
+            label="Name"
+            name="username"
+            rules={[
+              { required: true, message: "Please input your username!" },
+              {
+                pattern: /^[A-Za-z\s]+$/,
+                message: "Username must contain only alphabets!"
+              }
+            ]}
+          >
+            <Input className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200 max-w-[252px] float-right" />
+          </Form.Item>
 
 
 
-<Form.Item
-  label="Date Of Birth"
-  name="dob"
-  rules={[{ required: true, message: "Please input your date of birth!" }]}
->
-  <DatePicker
-    className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200 w-full"
-    format="YYYY-MM-DD"
-  />
-</Form.Item>
+          <Form.Item
+            label="Date Of Birth"
+            name="dob"
+            rules={[{ required: true, message: "Please input your date of birth!" }]}
+          >
+            <DatePicker
+              className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200 w-full max-w-[252px] float-right"
+              format="YYYY-MM-DD"
+            />
+          </Form.Item>
 
           <Form.Item
             label="Email"
             name="email"
             rules={[{ required: true, message: "Please input your email!" }]}
           >
-            <Input className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200" />
+            <Input className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200 max-w-[252px] float-right" />
           </Form.Item>
 
           <Form.Item
@@ -96,7 +96,7 @@ const Register = () => {
             name="password"
             rules={[{ required: true, message: "Please input your password!" }]}
           >
-            <Input.Password className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200" />
+            <Input.Password className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200 max-w-[252px] float-right" />
           </Form.Item>
 
           <Form.Item
@@ -116,7 +116,7 @@ const Register = () => {
               }),
             ]}
           >
-            <Input.Password className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200" />
+            <Input.Password className="bg-white/30 backdrop-blur-md border border-gray-300 text-white placeholder-gray-200 max-w-[252px] float-right" />
           </Form.Item>
 
           <Form.Item name="remember" valuePropName="checked" label={null}>
