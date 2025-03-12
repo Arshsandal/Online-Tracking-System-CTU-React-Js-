@@ -14,7 +14,7 @@ const register = async (req, res, next) => {
 
     if (existingUser) {
       console.log("User already registered");  // ✅ Log before sending response
-      return res.status(200).json({
+      return res.status(400).json({
         message: "User already registered. Please login.",
         isNewUser: false,
       });
@@ -35,8 +35,7 @@ const register = async (req, res, next) => {
     console.log("User Register Successfully"); 
     return res.status(201).json({
       message: "User registered successfully 🎉",
-      isNewUser: true,
-      redirectTo: "/login",
+      success:true
     });
     
     

@@ -11,6 +11,7 @@ import AllServices from "./pages/AllServices";
 import FixLounge from "./pages/FixLounge";
 import ProfilePage from "./pages/Profile";
 import TripTracker from "./pages/TripTracker";
+import RouteMap from "./pages/RouteMap";
 
 const root = document.getElementById("root");
 
@@ -27,6 +28,7 @@ ReactDOM.createRoot(root).render(
       <Route path="/fixLounge" element={<FixLounge />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/tripTracker" element={<TripTracker />} />
+      <Route path="/routeMap" element={<RouteMap />} />
     </Routes>
   </BrowserRouter>
 );
