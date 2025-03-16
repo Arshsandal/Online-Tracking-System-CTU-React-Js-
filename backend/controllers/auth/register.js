@@ -13,7 +13,7 @@ const register = async (req, res, next) => {
     });
 
     if (existingUser) {
-      console.log("User already registered");  // ✅ Log before sending response
+      console.log("User already registered"); 
       return res.status(400).json({
         message: "User already registered. Please login.",
         isNewUser: false,
