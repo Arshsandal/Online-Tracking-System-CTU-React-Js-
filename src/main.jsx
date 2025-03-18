@@ -13,7 +13,7 @@ import ProfilePage from "./pages/Profile";
 import TripTracker from "./pages/TripTracker";
 import RouteMap from "./pages/RouteMap";
 import Footer from "./components/Footer";
-import ForgotPassword from "./pages/ForgetPassword";
+import ForgotPassword from "./pages/ForgotPassword";
 
 const root = document.getElementById("root");
 
