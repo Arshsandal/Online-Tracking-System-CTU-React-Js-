@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Svg from '../components/Svg';
 import Copyright from '../components/Copyright';
+import Footer from '../components/Footer';
 
 const DiscoverChandigarh = () => {
   const imageSources = [
@@ -67,6 +68,7 @@ const DiscoverChandigarh = () => {
             <Copyright />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

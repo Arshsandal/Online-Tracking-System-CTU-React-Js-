@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar'; // Import your Navbar component
 import Svg from '../components/Svg'; // Import your Svg component (if you have one)
 import Copyright from '../components/Copyright'; // Import your Copyright component
+import Footer from '../components/Footer';
 
 const FixLounge = () => {
   return (
@@ -93,6 +94,7 @@ const FixLounge = () => {
           <Copyright />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

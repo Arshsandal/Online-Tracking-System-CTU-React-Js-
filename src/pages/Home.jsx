@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import busRoutes from "../api/formatted_bus_routes.json"; // ✅ Import JSON file
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [stationsFrom, setStationsFrom] = useState([]);
@@ -80,6 +81,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

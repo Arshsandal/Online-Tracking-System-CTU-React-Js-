@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Svg from '../components/Svg';       // Import your Svg component (if you have one)
 import Copyright from '../components/Copyright'; 
+import Footer from '../components/Footer';
 
 const AllServices = () => {
   return (
@@ -47,7 +48,7 @@ const AllServices = () => {
           <Copyright />
         </div>
       </div>
-    
+    <Footer />
     </>
   )
 }

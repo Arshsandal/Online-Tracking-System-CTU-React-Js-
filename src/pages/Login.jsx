@@ -1,16 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import logo from "../assets/Images/Logo_1.png";
 import { Button, Checkbox, Form, Input, notification, Space } from "antd";
 import bgImage from "../assets/Images/1Copy.jpg";
 import axios from "axios";
-
+import Footer from "../components/Footer";
 
 const Login = () => {
   const [api, contextHolder] = notification.useNotification();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+
   const openNotificationWithIcon = (type, title, description) => {
     api[type]({
       message: title,
@@ -22,16 +23,15 @@ const Login = () => {
     console.log("Success:", values);
     try {
       const response = await axios.post("http://localhost:5000/api/auth/login", values);
-  
+
       if (response.data.success) {
         openNotificationWithIcon("success", "Login Successful", "You have successfully logged in! 🎉");
         sessionStorage.setItem("username", response.data.username);
         sessionStorage.setItem("email", response.data.email);
         setTimeout(() => {
-          navigate(response.data.redirectTo || "/home"); 
-        }, 1500); 
-      } 
- else {
+          navigate(response.data.redirectTo || "/home");
+        }, 1500);
+      } else {
         openNotificationWithIcon("error", "Login Failed", response.data.message || "Invalid email or password.");
       }
     } catch (error) {
@@ -43,10 +43,11 @@ const Login = () => {
       }
     }
   };
-  
+
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
   return (
     <>
       <Navbar />
@@ -54,7 +55,7 @@ const Login = () => {
         className="flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat p-6"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
-          {contextHolder}
+        {contextHolder}
 
         <Form
           name="basic"
@@ -77,7 +78,7 @@ const Login = () => {
             label={<span className="text-white">Password</span>}
             name="password"
             rules={[{ required: true, message: "Please input your password!" }]}
-            labelCol={{ className: "text-white" }}  
+            labelCol={{ className: "text-white" }}
           >
             <Input.Password className="bg-transparent text-white border-white/50 placeholder-white focus:ring-0 max-w-[305px] float-right" />
           </Form.Item>
@@ -96,7 +97,14 @@ const Login = () => {
             </Button>
           </Form.Item>
 
-          <p className="text-center text-sm text-white">
+          {/* Add Forgot Password link */}
+          <div className="text-center text-sm text-white mt-2">
+            <NavLink to="/forgotPassword" className="text-blue-300 hover:underline">
+              Forgot Password?
+            </NavLink>
+          </div>
+
+          <p className="text-center text-sm text-white mt-2">
             Don't have an account?{" "}
             <NavLink to="/register" className="text-blue-300 hover:underline">
               Sign up
@@ -104,6 +112,7 @@ const Login = () => {
           </p>
         </Form>
       </div>
+      <Footer />
     </>
   );
 };

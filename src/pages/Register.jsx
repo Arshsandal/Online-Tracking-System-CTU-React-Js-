@@ -6,6 +6,7 @@ import { NavLink } from "react-router";
 import { Button, Checkbox, Form, Input, DatePicker, notification } from "antd";
 import bgImage from "../assets/Images/1Copy.jpg"
 import axios from "axios";
+import Footer from "../components/Footer";
 
 
 const Register = () => {
@@ -141,6 +142,7 @@ const Register = () => {
           </p>
         </Form>
       </div>
+      <Footer />
     </>
   );
 };

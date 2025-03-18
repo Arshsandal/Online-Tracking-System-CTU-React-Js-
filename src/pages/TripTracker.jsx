@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../api/formatted_bus_routes.json";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer"
 
 const TripTracker = () => {
   const [ctuRoutes, setCtuRoutes] = useState([]);
@@ -84,6 +85,7 @@ const TripTracker = () => {
           )}
         </div>
       </div>
+    <Footer />
     </>
   );
 };

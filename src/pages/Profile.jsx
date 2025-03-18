@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer";
 
 const ProfilePage = () => {
   const [username, setUsername] = useState("John Doe");
@@ -69,6 +70,7 @@ const ProfilePage = () => {
         </div>
       </div>
     </div>
+    <Footer />
     </>
   );
 };

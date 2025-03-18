@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const RouteMap = () => {
   const [startLocation, setStartLocation] = useState("");
@@ -14,10 +15,10 @@ const RouteMap = () => {
     script.async = true;
     script.onload = () => {
       setLoading(false);
-      initMap();  // Initialize the map when the script is loaded
+      initMap();  
     };
     document.body.appendChild(script);
-    setLoading(true); // Set loading state when the script starts loading
+    setLoading(true); 
   }, []);
 
   const initMap = () => {
@@ -102,6 +103,7 @@ const RouteMap = () => {
           ></iframe>
         </div>
       </div>
+     <Footer />
     </>
   );
 };

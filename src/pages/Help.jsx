@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Svg from '../components/Svg';
 import Copyright from '../components/Copyright';
+import Footer from '../components/Footer';
 
 const Help = () => {
   return (
@@ -75,6 +76,7 @@ const Help = () => {
           <Copyright />
         </div>
       </div>
+      <Footer />
     </>
   );
 };
