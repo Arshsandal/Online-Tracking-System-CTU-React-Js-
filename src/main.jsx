@@ -14,6 +14,16 @@ import TripTracker from "./pages/TripTracker";
 import RouteMap from "./pages/RouteMap";
 import Footer from "./components/Footer";
 import ForgotPassword from "./pages/ForgotPassword";
+import MyBookings from "./pages/MyBookings";
+import PaymentMethods from "./pages/PaymentMethods";
+import ProfileSettings from "./pages/ProfileSettings";
+import Notifications from "./pages/Notifications";
+import Support from "./pages/Support";
+import OnBoard from "./pages/OnBoard";
+import Safety from "./pages/Safety";
+import CustomerSatisfaction from "./pages/CustomerSatisfaction";
+import SchedulesAnsStops from "./pages/SchedulesAndStops";
+import SchedulesAndStops from "./pages/SchedulesAndStops";
 
 const root = document.getElementById("root");
 
@@ -33,6 +43,15 @@ ReactDOM.createRoot(root).render(
       <Route path="/routeMap" element={<RouteMap />} />
       <Route path="/footer" element={<Footer />} />
       <Route path="/forgotPassword" element={<ForgotPassword />} />
+      <Route path="/myBooking" element={<MyBookings />} />
+      <Route path="/paymentMethods" element={<PaymentMethods />} />
+      <Route path="/profileSettings" element={<ProfileSettings />} />
+      <Route path="/notifications" element={<Notifications />} />
+      <Route path="/support" element={<Support />} />
+      <Route path="/onBoard" element={<OnBoard />} />
+      <Route path="/safety" element={<Safety />} />
+      <Route path="/customerSatisfaction" element={<CustomerSatisfaction />} />
+      <Route path="/schedulesAndStops" element={<SchedulesAndStops />} />
     </Routes>
   </BrowserRouter>
 );

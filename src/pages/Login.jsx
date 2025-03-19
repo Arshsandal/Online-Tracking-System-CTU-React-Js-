@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -7,8 +7,11 @@ import { Button, Checkbox, Form, Input, notification, Space } from "antd";
 import bgImage from "../assets/Images/1Copy.jpg";
 import axios from "axios";
 import Footer from "../components/Footer";
+import Lottie from "lottie-react";
+import Animation from "../assets/Animations/Animation-Spinner.json"
 
 const Login = () => {
+  const [loading, setLoading] = useState(false)
   const [api, contextHolder] = notification.useNotification();
   const navigate = useNavigate();
 
@@ -21,6 +24,7 @@ const Login = () => {
 
   const onFinish = async (values) => {
     console.log("Success:", values);
+    setLoading(true)
     try {
       const response = await axios.post("http://localhost:5000/api/auth/login", values);
 
@@ -93,7 +97,7 @@ const Login = () => {
               htmlType="submit"
               className="w-full bg-white/30 text-white hover:bg-white/50 transition-all"
             >
-              Submit
+              {loading? <Lottie animationData={Animation} className="h-6 w-6" /> :"Submit"}
             </Button>
           </Form.Item>
 

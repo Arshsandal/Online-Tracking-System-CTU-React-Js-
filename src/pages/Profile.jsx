@@ -41,9 +41,9 @@ const ProfilePage = () => {
             <p className="text-gray-600 text-sm">{email}</p>
           </div>
           <h3 className="text-lg font-semibold text-gray-800">Dashboard</h3>
-          <NavLink to="/my-bookings" className="w-full text-left px-4 py-3 bg-gray-200 hover:bg-green-500 hover:text-white text-gray-800 font-medium rounded-md transition-all">My Bookings</NavLink>
-          <NavLink to="/payment-methods" className="w-full text-left px-4 py-3 bg-gray-200 hover:bg-green-500 hover:text-white text-gray-800 font-medium rounded-md transition-all">Payment Methods</NavLink>
-          <NavLink to="/settings" className="w-full text-left px-4 py-3 bg-gray-200 hover:bg-green-500 hover:text-white text-gray-800 font-medium rounded-md transition-all">Settings</NavLink>
+          <NavLink to="/myBooking" className="w-full text-left px-4 py-3 bg-gray-200 hover:bg-green-500 hover:text-white text-gray-800 font-medium rounded-md transition-all">My Bookings</NavLink>
+          <NavLink to="/paymentMethods" className="w-full text-left px-4 py-3 bg-gray-200 hover:bg-green-500 hover:text-white text-gray-800 font-medium rounded-md transition-all">Payment Methods</NavLink>
+          <NavLink to="/profileSettings" className="w-full text-left px-4 py-3 bg-gray-200 hover:bg-green-500 hover:text-white text-gray-800 font-medium rounded-md transition-all">Settings</NavLink>
           <NavLink to="/notifications" className="w-full text-left px-4 py-3 bg-gray-200 hover:bg-green-500 hover:text-white text-gray-800 font-medium rounded-md transition-all">Notifications</NavLink>
           <NavLink to="/support" className="w-full text-left px-4 py-3 bg-gray-200 hover:bg-green-500 hover:text-white text-gray-800 font-medium rounded-md transition-all">Support</NavLink>
           <button onClick={handleLogout} className="w-full text-left bg-red-500 text-white px-4 py-3 rounded-md shadow-sm hover:bg-red-600 transition-all cursor-pointer">Logout</button>

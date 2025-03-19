@@ -43,7 +43,9 @@ const Navbar = () => {
                   Route Map
                 </NavLink>
                 <hr />
-                <a href="#">Schedules & Stops</a>
+                <NavLink to="/schedulesAndStops" className="text-black hover:text-white">
+                Schedules & Stops
+                </NavLink>
                 <hr />
                 <NavLink to="/discoverChandigarh" className="text-black hover:text-white">
                   Discover Chandigarh
@@ -64,11 +66,17 @@ const Navbar = () => {
                   Fix Lounge
                 </NavLink>
                 <hr />
-                <a href="#">On Board</a>
+                <NavLink to="/onBoard" className="text-black hover:text-white">
+                  On Board
+                </NavLink>
                 <hr />
-                <a href="#">Safety</a>
+                <NavLink to="/safety" className="text-black hover:text-white">
+                  Safety
+                </NavLink>
                 <hr />
-                <a href="#">Customer Satisfaction</a>
+                <NavLink to="/customerSatisfaction" className="text-black hover:text-white">
+                Customer Satisfaction
+                </NavLink>
               </div>
             </li>
             <li>

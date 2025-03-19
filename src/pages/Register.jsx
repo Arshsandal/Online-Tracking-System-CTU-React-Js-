@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import logo from "../assets/Images/Logo_1.png";
 import { useNavigate } from "react-router-dom"
@@ -7,10 +7,12 @@ import { Button, Checkbox, Form, Input, DatePicker, notification } from "antd";
 import bgImage from "../assets/Images/1Copy.jpg"
 import axios from "axios";
 import Footer from "../components/Footer";
+import Lottie from "lottie-react";
+import Animation from "../assets/Animations/Animation-Spinner.json"
 
 
 const Register = () => {
-
+  const [loading, setLoading] = useState(false)
   const [api, contextHolder] = notification.useNotification();
     const navigate = useNavigate(); 
   const openNotificationWithIcon = (type, title, description) => {
@@ -23,6 +25,7 @@ const Register = () => {
 
   const onFinish = async (values) => {
     console.log("Success:", values);
+    setLoading(true)
     try {
       const response = await axios.post("http://localhost:5000/api/auth/register", values);
 
@@ -130,7 +133,7 @@ const Register = () => {
 
           <Form.Item label={null}>
             <Button type="primary" htmlType="submit" className="w-full bg-white/30 backdrop-blur-md text-white border border-white/20 hover:bg-white/50"  >
-              Submit
+            {loading ? <Lottie animationData={Animation} className="h-6 w-6" /> : "Submit"}
             </Button>
           </Form.Item>
 
