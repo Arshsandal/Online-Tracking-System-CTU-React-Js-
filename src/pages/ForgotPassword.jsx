@@ -59,22 +59,28 @@ const ForgotPassword = () => {
         openNotificationWithIcon("error", "Invalid OTP", "Please enter the OTP.");
         return;
       }
-
+  
+      console.log("Verifying OTP for:", email, "with OTP:", otp); // Debugging
+  
       const response = await axios.post("http://localhost:5000/api/auth/verifyOtp", {
         email,
         otp,
       });
-
+  
+      console.log("Response:", response.data); // Debugging
+  
       if (response.data.success) {
         openNotificationWithIcon("success", "OTP Verified", "You can now reset your password.");
         navigate("/reset-password");
       } else {
-        openNotificationWithIcon("error", "Invalid OTP", "Please try again.");
+        openNotificationWithIcon("error", "Invalid OTP", response.data.message || "Please try again.");
       }
     } catch (error) {
+      console.error("Error verifying OTP:", error);
       openNotificationWithIcon("error", "Error", "Failed to verify OTP.");
     }
   };
+  
 
   return (
     <>

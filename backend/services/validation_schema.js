@@ -16,4 +16,8 @@ const loginValidation = Joi.object({
   remember: Joi.boolean()
 })
 
-  module.exports = {registrationValidation, loginValidation}
+const forgotValidation = Joi.object({
+  email: Joi.string().email().required(),
+});
+
+  module.exports = {registrationValidation, loginValidation, forgotValidation}

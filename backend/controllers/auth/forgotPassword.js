@@ -1,12 +1,16 @@
 const User = require("../../models/User.model");
 const ResetPasswordSchema = require("../../models/ResetPassword.model")
 const sendEmail = require("../../services/sendEmail")
+const {forgotValidation} = require("../../services/validation_schema")
 
 const generateOTP = () => {
     return Math.floor(1000 + Math.random() * 9000).toString();
 }
 
 const forgotPassword = async (req, res, next) => {
+  const forgotPasswordResponse = await forgotValidation.validateAsync(req.body);
+  console.log(forgotPasswordResponse);
+  
     try {
         const { email } = req.body;
         if (!email) return res.status(400).json({ success: false, message: "Email is required" });
