@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import CardImg from "../assets/Images/credit-card.png"
 import Upi from "../assets/Images/upi.png"
 import ApplePay from "../assets/Images/ApplePay.png"
+import NetBanking from "../assets/Images/NetBanking.png"
 
 const PaymentMethods = () => {
   const paymentMethods = [
@@ -21,7 +22,7 @@ const PaymentMethods = () => {
     },
     {
       name: "Net Banking",
-      image: "https://cdn-icons-png.flaticon.com/128/3177/3177407.png",
+      image: NetBanking,
     },
     {
       name: "Google Pay",

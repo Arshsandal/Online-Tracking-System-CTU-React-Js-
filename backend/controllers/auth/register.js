@@ -1,5 +1,6 @@
 const User = require("../../models/User.model");
 const { registrationValidation } = require("../../services/validation_schema");
+const bcrypt = require("bcryptjs")
 
 
 const register = async (req, res, next) => {
@@ -19,14 +20,18 @@ const register = async (req, res, next) => {
         isNewUser: false,
       });
     }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+     
+    console.log(hashedPassword);
     
 
     const newUser = new User({
       username,
       dob,
       email,
-      password,
-      confirmPassword,
+      password: hashedPassword,
+      confirmPassword: hashedPassword,
       remember
     });
 

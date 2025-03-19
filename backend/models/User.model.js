@@ -21,7 +21,7 @@ const UserSchema = new Schema({
         type: String,
         required: true,
         minlength: 3,
-        maxlength: 50
+        maxlength: 100
     },
     remember: {
         type: Boolean,

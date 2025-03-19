@@ -4,7 +4,7 @@ const registrationValidation = Joi.object({
     username: Joi.string().required(),
     dob: Joi.date().required(),
     email: Joi.string().email().required(),
-    password: Joi.string().required().min(3).max(50),
+    password: Joi.string().required(),
     confirmPassword:Joi.string().required(),
     remember: Joi.boolean()
   });

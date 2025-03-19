@@ -8,7 +8,6 @@ const Home = () => {
   const [stationsTo, setStationsTo] = useState([]);
 
   useEffect(() => {
-    // Since data is already imported, directly set it to state
     const fromOptions = busRoutes.map((item) => ({
       value: item.start,
       label: `${item.route_number} ${item.start}`,
