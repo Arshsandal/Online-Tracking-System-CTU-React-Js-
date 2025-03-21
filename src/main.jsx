@@ -24,6 +24,7 @@ import Safety from "./pages/Safety";
 import CustomerSatisfaction from "./pages/CustomerSatisfaction";
 import SchedulesAnsStops from "./pages/SchedulesAndStops";
 import SchedulesAndStops from "./pages/SchedulesAndStops";
+import ResetPassword from "./pages/ResetPassword";
 
 const root = document.getElementById("root");
 
@@ -52,6 +53,7 @@ ReactDOM.createRoot(root).render(
       <Route path="/safety" element={<Safety />} />
       <Route path="/customerSatisfaction" element={<CustomerSatisfaction />} />
       <Route path="/schedulesAndStops" element={<SchedulesAndStops />} />
+      <Route path="/resetPAssword" element={<ResetPassword />} />
     </Routes>
   </BrowserRouter>
 );

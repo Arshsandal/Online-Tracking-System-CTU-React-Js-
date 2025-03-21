@@ -12,7 +12,7 @@ import Animation from "../assets/Animations/Animation-Spinner.json";
 const ForgotPassword = () => {
   const [loading, setLoading] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
-  const [otp, setOtp] = useState("");
+  const [otp, setOtp] = useState();
   const [email, setEmail] = useState("");
   const [animationPlaying, setAnimationPlaying] = useState(false);
   const [form] = Form.useForm();
@@ -55,23 +55,25 @@ const ForgotPassword = () => {
 
   const verifyOtp = async () => {
     try {
+      setLoading(true);
       if (!otp) {
         openNotificationWithIcon("error", "Invalid OTP", "Please enter the OTP.");
         return;
       }
   
-      console.log("Verifying OTP for:", email, "with OTP:", otp); // Debugging
-  
+      console.log("Verifying OTP for:", email, "with OTP:", otp); 
+
       const response = await axios.post("http://localhost:5000/api/auth/verifyOtp", {
         email,
         otp,
       });
+      setLoading(false)
   
       console.log("Response:", response.data); // Debugging
   
       if (response.data.success) {
         openNotificationWithIcon("success", "OTP Verified", "You can now reset your password.");
-        navigate("/reset-password");
+        navigate("/resetPassword");
       } else {
         openNotificationWithIcon("error", "Invalid OTP", response.data.message || "Please try again.");
       }

@@ -1,5 +1,4 @@
 const ResetPasswordSchema = require("../../models/ResetPassword.model");
-const Otp = require("../../models/Otp.model");
 
 const verifyOtp = async (req, res) => {
   try {
@@ -9,16 +8,15 @@ const verifyOtp = async (req, res) => {
       return res.status(400).json({ success: false, message: "Email and OTP are required" });
     }
 
-    const otpRecord = await Otp.findOne({ email });
+    const otpRecord = await ResetPasswordSchema.findOne({ otp });
 
     if (!otpRecord) {
       return res.status(400).json({ success: false, message: "Invalid or expired OTP" });
     }
 
-    console.log("Stored OTP:", otpRecord.otp); // Debugging
-    console.log("Entered OTP:", otp); // Debugging
+    console.log("Stored OTP:", otpRecord.otp);
+    console.log("Entered OTP:", otp); 
 
-    // If OTPs are stored in plain text (not recommended), ensure type match
     if (typeof otpRecord.otp === "number") {
       otpRecord.otp = otpRecord.otp.toString();
     }
@@ -27,8 +25,7 @@ const verifyOtp = async (req, res) => {
       return res.status(400).json({ success: false, message: "Invalid OTP" });
     }
 
-    // Delete OTP after successful verification
-    await Otp.deleteOne({ email });
+    await ResetPasswordSchema.deleteOne({ email });
 
     return res.json({ success: true, message: "OTP verified successfully" });
 

@@ -5,19 +5,16 @@ const sendOtpEmail = async (email, otp) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: process.env.GMAIL_ID,  // Your Gmail
-      pass: process.env.GMAIL_PASSWORD,  // App Password (not your actual password)
+      user: process.env.GMAIL_ID,  
+      pass: process.env.GMAIL_PASSWORD,  
     },
   });
-
-  console.log("Email:", process.env.GMAIL_ID);
-console.log("Password:", process.env.GMAIL_PASSWORD ? "Loaded" : "Not Loaded");
 
   const mailOptions = {
     from: process.env.GMAIL_ID,
     to: email,
     subject: "Password Reset OTP",
-    html: `<p>Your OTP for password reset is: <b>${otp}</b></p><p>This OTP is valid for 10 minutes.</p>`,
+    html: `<p>Hello Sir/Mam,</p><br><h2>Your OTP for password reset is: <b>${otp}</b></h2><p>This OTP is valid for 10 minutes.</p><br><p><p>&copy; 2025 Online Tracking System (CTU). All rights reserved.</p>`,
   };
 
   try {

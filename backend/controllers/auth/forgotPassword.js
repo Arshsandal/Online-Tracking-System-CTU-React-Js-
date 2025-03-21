@@ -4,7 +4,7 @@ const sendEmail = require("../../services/sendEmail")
 const {forgotValidation} = require("../../services/validation_schema")
 
 const generateOTP = () => {
-    return Math.floor(1000 + Math.random() * 9000).toString();
+    return Math.floor(1000 + Math.random() * 9000);
 }
 
 const forgotPassword = async (req, res, next) => {
