@@ -1,4 +1,4 @@
-const ResetPasswordSchema = require("../../models/ResetPassword.model");
+const Otp = require("../../models/Otp.model"); 
 
 const verifyOtp = async (req, res) => {
   try {
@@ -8,8 +8,8 @@ const verifyOtp = async (req, res) => {
       return res.status(400).json({ success: false, message: "Email and OTP are required" });
     }
 
-    const otpRecord = await ResetPasswordSchema.findOne({ otp });
-
+    const otpRecord = await Otp.findOne({ otp });
+    
     if (!otpRecord) {
       return res.status(400).json({ success: false, message: "Invalid or expired OTP" });
     }
@@ -25,7 +25,7 @@ const verifyOtp = async (req, res) => {
       return res.status(400).json({ success: false, message: "Invalid OTP" });
     }
 
-    await ResetPasswordSchema.deleteOne({ email });
+    await Otp.deleteOne({ email });
 
     return res.json({ success: true, message: "OTP verified successfully" });
 

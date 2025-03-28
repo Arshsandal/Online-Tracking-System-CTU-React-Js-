@@ -1,5 +1,5 @@
 const User = require("../../models/User.model");
-const ResetPasswordSchema = require("../../models/ResetPassword.model")
+const Otp = require("../../models/Otp.model")
 const sendEmail = require("../../services/sendEmail")
 const {forgotValidation} = require("../../services/validation_schema")
 
@@ -19,7 +19,7 @@ const forgotPassword = async (req, res, next) => {
         if (!user) return res.status(404).json({ success: false, message: "User not found" });
     
         const otp = generateOTP();
-        await ResetPasswordSchema.create({ email, otp });
+        await Otp.create({ email, otp });
     
         await sendEmail(email, otp);  
     

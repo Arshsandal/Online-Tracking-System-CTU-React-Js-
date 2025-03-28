@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const User = require("../../models/User.model");
 const { loginValidation } = require("../../services/validation_schema");
+const {generateAccessToken, generateRefreshToken} = require("../../services/generateToken")
 
 const login = async (req, res, next) => {
   try {
@@ -24,13 +25,19 @@ const login = async (req, res, next) => {
       });
     }
 
+
+    const accessToken = generateAccessToken(payload, accessSecret);
+
+    if (accessToken) {
+      await existingUser.save(); 
+
     return res.status(201).json({
       success: true,
       message: "Login successfully 🎉",
       username: existingUser.username,
       email: existingUser.email,
       redirectTo: "/home",
-    });
+    });}
 
   } catch (error) {
     next(error);

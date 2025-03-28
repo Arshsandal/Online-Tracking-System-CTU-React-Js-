@@ -67,7 +67,7 @@ const ForgotPassword = () => {
         email,
         otp,
       });
-      setLoading(false)
+
   
       console.log("Response:", response.data); // Debugging
   
