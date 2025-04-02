@@ -5,10 +5,11 @@
   import logo from "../assets/Images/Logo_1.png";
   import { Button, Checkbox, Form, Input, notification, Space } from "antd";
   import bgImage from "../assets/Images/1Copy.jpg";
-  import axios from "axios";
+  import axiosInstance from "../../axiosInstance";
   import Footer from "../components/Footer";
   import Lottie from "lottie-react";
   import Animation from "../assets/Animations/Animation-Spinner.json"
+  import baseURL from "../../config"
 
   const Login = () => {
     const [loading, setLoading] = useState(false)
@@ -26,15 +27,15 @@
       console.log("Success:", values);
       setLoading(true);
       try {
-        const response = await axios.post("http://localhost:5000/api/auth/login", values);
+        const response = await axiosInstance.post(`${baseURL}api/auth/login`, values);
         console.log("API Response:", response.data);
         
         if (response.data.success) {
           openNotificationWithIcon("success", "Login Successful", "You have successfully logged in! 🎉");
   
           if (response.data.payload) {
-            sessionStorage.setItem("username", response.data.payload.username);
-            sessionStorage.setItem("email", response.data.payload.email);
+            localStorage.setItem("username", response.data.payload.username);
+            localStorage.setItem("email", response.data.payload.email);
           }
           
           setTimeout(() => {

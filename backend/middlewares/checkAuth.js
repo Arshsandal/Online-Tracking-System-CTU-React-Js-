@@ -1,18 +1,57 @@
+// const checkAuth = (req, res, next) => {
+//     try {
+//         const token = req.headers.authorization;
+//         console.log("token is: ", token);
+//         next();
+//     } catch (error) {
+//         console.error("Check Auth Error: ", error);
+        
+//     }
+// }
+
+// module.exports = checkAuth
+
+
 const jwt = require("jsonwebtoken");
+
 const secretKey = process.env.ACCESSSECRETKEY;
 
 module.exports = (req, res, next) => {
-    try {
-        const authHeader = req.headers.authorization;
-        if (!authHeader || !authHeader.startsWith("Bearer ")) {
-            return res.status(401).json({ message: "Authorization token missing or malformed" });
-        }
-        const token = authHeader.split(" ")[1];
-        const verifiedUser = jwt.verify(token, secretKey);
-        req.user = verifiedUser; // Store user info for next middleware
-
-        next();
-    } catch (error) {
-        return res.status(401).json({ message: "Invalid Token !!" });
+  try {
+    // Check if Authorization header exists
+    if (!req.headers.authorization) {
+      return res.status(401).json({
+        message: "Authorization header missing!",
+      });
     }
+
+    // Extract the token from the Authorization header
+    const token = req.headers.authorization.split(" ")[1];
+
+    // Verify the token
+    const decoded = jwt.verify(token, secretKey);
+
+    // Attach user data to request for further use
+    req.user = decoded;
+
+    // Continue to the next middleware or route
+    next();
+  } catch (error) {
+    console.error("JWT Verification Error:", error.message);
+
+    // Handle different JWT errors
+    if (error.name === "TokenExpiredError") {
+      return res.status(401).json({
+        message: "Token has expired. Please log in again.",
+      });
+    } else if (error.name === "JsonWebTokenError") {
+      return res.status(401).json({
+        message: "Invalid Token !!",
+      });
+    } else {
+      return res.status(500).json({
+        message: "Authentication failed!",
+      });
+    }
+  }
 };
