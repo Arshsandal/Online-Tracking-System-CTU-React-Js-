@@ -1,15 +1,15 @@
 const bcrypt = require("bcryptjs");
 const User = require("../../models/User.model");
 const { loginValidation } = require("../../services/validation_schema");
-const {generateAccessToken, generateRefreshToken} = require("../../services/generateToken")
+const { generateAccessToken } = require("../../services/generateToken");
 
 const login = async (req, res, next) => {
   try {
     const loginResponse = await loginValidation.validateAsync(req.body);
-    console.log(loginResponse);
+    console.log("Login Request Data:", loginResponse);
+    
     const { email, password } = loginResponse;
-
-    const existingUser = await User.findOne({email})
+    const existingUser = await User.findOne({ email });
 
     if (!existingUser) {
       return res.status(200).json({
@@ -17,6 +17,7 @@ const login = async (req, res, next) => {
         message: "Invalid Email Address. Please register.",
       });
     }
+
     const passwordMatching = await bcrypt.compare(password, existingUser.password);
     if (!passwordMatching) {
       return res.status(400).json({
@@ -25,19 +26,27 @@ const login = async (req, res, next) => {
       });
     }
 
+    const accessSecret = process.env.ACCESSSECRETKEY;
+
+    const payload = {
+      username: existingUser.username,
+      email: existingUser.email,
+    };
 
     const accessToken = generateAccessToken(payload, accessSecret);
-
-    if (accessToken) {
-      await existingUser.save(); 
+    
+    console.log("Generated Access Token:", accessToken);
 
     return res.status(201).json({
       success: true,
       message: "Login successfully 🎉",
-      username: existingUser.username,
-      email: existingUser.email,
       redirectTo: "/home",
-    });}
+      payload: { 
+        username: existingUser.username, 
+        email: existingUser.email 
+      },
+      token:accessToken
+    });
 
   } catch (error) {
     next(error);
