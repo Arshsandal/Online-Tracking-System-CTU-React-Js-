@@ -68,6 +68,8 @@ const ForgotPassword = () => {
         otp,
       });
 
+      localStorage.setItem("resetEmail", email); 
+
   
       console.log("Response:", response.data); // Debugging
   

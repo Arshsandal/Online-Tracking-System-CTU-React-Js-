@@ -43,7 +43,8 @@ const login = async (req, res, next) => {
       redirectTo: "/home",
       payload: { 
         username: existingUser.username, 
-        email: existingUser.email 
+        email: existingUser.email,
+        role: existingUser.role
       },
       token:accessToken
     });

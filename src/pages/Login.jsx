@@ -36,6 +36,7 @@
           if (response.data.payload) {
             localStorage.setItem("username", response.data.payload.username);
             localStorage.setItem("email", response.data.payload.email);
+            localStorage.setItem("role", response.data.payload.role);
           }
           
           setTimeout(() => {

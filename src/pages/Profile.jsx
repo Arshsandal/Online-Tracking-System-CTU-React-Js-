@@ -10,8 +10,8 @@ const ProfilePage = () => {
   const [routes, setRoutes] = useState([]);
 
   useEffect(() => {
-    const storedUsername = sessionStorage.getItem("username") || "John Doe";
-    const storedEmail = sessionStorage.getItem("email") || "johndoe@example.com";
+    const storedUsername = localStorage.getItem("username") || "John Doe";
+    const storedEmail = localStorage.getItem("email") || "johndoe@example.com";
     setUsername(storedUsername);
     setEmail(storedEmail);
     
@@ -25,7 +25,7 @@ const ProfilePage = () => {
   }, []);
 
   const handleLogout = () => {
-    sessionStorage.clear();
+    localStorage.clear();
     navigate("/home");
   };
 

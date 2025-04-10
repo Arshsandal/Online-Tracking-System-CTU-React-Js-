@@ -23,25 +23,29 @@ const ResetPassword = () => {
   };
 
   const onFinish = async (values) => {
-    console.log("Success:", values);
-    setLoading(true);
+    const email = localStorage.getItem("resetEmail");
+  
+    if (!email) {
+      message.error("Email is missing. Please restart the reset process.");
+      return;
+    }
+  
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/resetPassword", values);
-
-      if (response.data.success) {
-        openNotificationWithIcon("success", "Password Reset Successful", "You can now log in with your new password! 🎉");
-        setTimeout(() => {
-          navigate("/login");
-        }, 1500);
-      } else {
-        openNotificationWithIcon("error", "Reset Failed", response.data.message || "Something went wrong.");
-      }
+      const response = await axios.post("http://localhost:5000/api/auth/resetPassword", {
+        email: email,
+        newPassword: values.newPassword,
+        confirmNewPassword: values.confirmNewPassword,
+      });
+  
+      message.success(response.data.message);
+      // Optional: Redirect to login page
     } catch (error) {
       console.error("Password reset failed:", error);
-      openNotificationWithIcon("error", "Error", "Unable to reset password. Please try again.");
+      message.error(error.response?.data?.message || "Something went wrong.");
     }
-    setLoading(false);
   };
+  
+  
 
   return (
     <>

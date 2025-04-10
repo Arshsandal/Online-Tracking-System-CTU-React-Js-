@@ -32,7 +32,7 @@ const register = async (req, res, next) => {
       email,
       password: hashedPassword,
       confirmPassword: hashedPassword,
-      remember
+      remember,
     });
 
     await newUser.save();

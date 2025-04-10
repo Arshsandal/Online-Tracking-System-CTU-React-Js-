@@ -1,37 +1,39 @@
-const ResetPasswordSchema = require("../../models/ResetPassword.model")
-const User = require("../../models/User.model")
+const User = require("../../models/User.model");
+const ResetPasswordSchema = require("../../models/ResetPassword.model");
 const bcrypt = require("bcryptjs");
+const Joi = require("joi");
 
-const resetPassword = async (req, res, next) => {
+// ✅ Match frontend fields
+const resetPasswordValidation = Joi.object({
+  email: Joi.string().email().required(),
+  newPassword: Joi.string().min(6).required(),
+  confirmNewPassword: Joi.any().valid(Joi.ref("newPassword")).required().messages({
+    "any.only": "Passwords do not match!",
+  }),
+});
+
+const resetPassword = async (req, res) => {
   try {
-      const { email, password } = req.body;
+    const { email, newPassword } = await resetPasswordValidation.validateAsync(req.body);
 
-      if (!email || !password) {
-          return res.status(400).json({ message: "Email and password are required" });
-      }
+    const user = await User.findOne({ email: email.toLowerCase() });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
 
-      console.log("Email received:", email);
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    user.password = hashedPassword;
+    user.confirmPassword = hashedPassword;
 
-      const hashedPassword = await bcrypt.hash(password, 10);
+    await user.save();
 
-      console.log("Hashed Password:", hashedPassword);
+    await ResetPasswordSchema.findOneAndDelete({ email: email.toLowerCase() });
 
-      const updatedUser = await User.findOneAndUpdate(
-        { email: email },
-        { password: hashedPassword },
-        { new: true }
-      );
-
-      if (!updatedUser) {
-          return res.status(404).json({ message: "User not found" });
-      }
-
-      await ResetPasswordSchema.findOneAndDelete({ email: email });
-  
-      res.json({ message: "Password reset successfully" });
-  } catch (err) {
-      next(err);
+    return res.status(200).json({ message: "Password reset successfully 🎉", success: true });
+  } catch (error) {
+    console.error("Error in resetPassword:", error);
+    return res.status(400).json({ message: error.message });
   }
 };
 
-module.exports = resetPassword
+module.exports = resetPassword;

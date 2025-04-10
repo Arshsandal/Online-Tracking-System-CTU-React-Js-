@@ -7,14 +7,14 @@ const Navbar = () => {
   const navigate = useNavigate(); // Initialize navigate
 
   useEffect(() => {
-    const storedUsername = sessionStorage.getItem("username");
+    const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
       setUsername(storedUsername);
     }
   }, []);
 
   const handleLogout = () => {
-    sessionStorage.clear();
+    localStorage.clear();
     setUsername("");
     navigate("/home", { replace: true });
   };

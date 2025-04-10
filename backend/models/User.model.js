@@ -26,6 +26,10 @@ const UserSchema = new Schema({
     remember: {
         type: Boolean,
         default: false
+    },
+    role: {
+        type: String,
+        default : "user"
     }
 });
 
