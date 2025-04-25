@@ -1,17 +1,3 @@
-// const checkAuth = (req, res, next) => {
-//     try {
-//         const token = req.headers.authorization;
-//         console.log("token is: ", token);
-//         next();
-//     } catch (error) {
-//         console.error("Check Auth Error: ", error);
-        
-//     }
-// }
-
-// module.exports = checkAuth
-
-
 const jwt = require("jsonwebtoken");
 
 const secretKey = process.env.ACCESSSECRETKEY;
