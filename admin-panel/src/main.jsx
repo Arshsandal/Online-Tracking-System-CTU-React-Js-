@@ -9,6 +9,7 @@ import AddBus from "./pages/AddBuses";
 import ManageBuses from "./pages/ManageBuses";
 import ManageRoutes from "./pages/manageRoutes";
 import Login from "./pages/Login";
+import EditProfile from "./pages/EditProfile";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -20,7 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <Route path="/login" element={<Login />} />
 
   {/* Protected App Layout with Nested Pages */}
-  <Route path="/home" element={<App />}>
+  <Route path="/" element={<App />}>
     <Route index element={<Navigate to="dashboard" />} />
     <Route path="dashboard" element={<Dashboard />} />
     <Route path="users" element={<Users />} />
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Route path="addbus" element={<AddBus />} />
     <Route path="managebuses" element={<ManageBuses />} />
     <Route path="manageroutes" element={<ManageRoutes />} />
+    <Route path="editprofile" element={<EditProfile />} />
   </Route>
 
   {/* Catch-all for undefined routes */}

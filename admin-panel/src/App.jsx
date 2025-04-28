@@ -8,6 +8,7 @@ const { Sider, Content } = Layout;
 
 const App = () => {
   return (
+    <>
     <Layout style={{ minHeight: "100vh" }}>
       <Sider >
         <Sidebar />
@@ -19,6 +20,7 @@ const App = () => {
         </Content>
       </Layout>
     </Layout>
+    </>
   );
 };
 

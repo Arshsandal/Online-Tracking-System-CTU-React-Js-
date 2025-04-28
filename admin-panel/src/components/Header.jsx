@@ -18,7 +18,7 @@ const CustomHeader = () => {
   const handleMenuClick = ({ key }) => {
     switch (key) {
       case "edit":
-        // Navigate to Edit Profile (optional)
+        navigate("/editprofile")
         break;
       case "support":
         // Navigate to Support (optional)
@@ -59,7 +59,7 @@ const CustomHeader = () => {
         Admin Panel Chandigarh Transport Undertaking
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-        <span style={{ fontWeight: 500 }}>{username}</span>
+        <span style={{ fontWeight: 500 }}>Welcom, {username}</span>
         <Dropdown overlay={menu} trigger={["click"]}>
           <div style={{ cursor: "pointer" }}>
             <Badge dot={false} offset={[-2, 2]}>

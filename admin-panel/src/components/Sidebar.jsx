@@ -31,34 +31,34 @@ const Sidebar = ({ selectedKey }) => {
         style={{ flex: 1 }}
       >
         <Menu.Item key="/dashboard" icon={<DashboardOutlined />}>
-          <Link to="/home/dashboard">Dashboard</Link>
+          <Link to="/dashboard">Dashboard</Link>
         </Menu.Item>
 
         {userRole === "admin" && (
           <Menu.Item key="/users" icon={<UserOutlined />}>
-            <Link to="/home/users">Users</Link>
+            <Link to="/users">Users</Link>
           </Menu.Item>
         )}
 
         <Menu.Item key="/buses" icon={<CarOutlined />}>
-          <Link to="/home/buses">View Buses</Link>
+          <Link to="/buses">View Buses</Link>
         </Menu.Item>
 
         {(userRole === "admin" || userRole === "user") && (
           <Menu.Item key="/addbus" icon={<PlusCircleOutlined />}>
-            <Link to="/home/addbus">Add Bus</Link>
+            <Link to="/addbus">Add Bus</Link>
           </Menu.Item>
         )}
 
         {userRole === "admin" && (
           <Menu.Item key="/managebuses" icon={<EditOutlined />}>
-            <Link to="/home/managebuses">Manage Buses</Link>
+            <Link to="/managebuses">Manage Buses</Link>
           </Menu.Item>
         )}
 
         {(userRole === "admin" || userRole === "user") && (
           <Menu.Item key="/manageroutes" icon={<DeploymentUnitOutlined />}>
-            <Link to="/home/manageroutes">Manage Routes</Link>
+            <Link to="/manageroutes">Manage Routes</Link>
           </Menu.Item>
         )}
       </Menu>
