@@ -7,6 +7,11 @@ const resetPassword = require("../../controllers/auth/resetPassword.js")
 const checkAuth = require("../../middlewares/checkAuth.js");
 const getUser = require("../../controllers/auth/getUsers.js");
 const addUser = require("../../controllers/auth/addUser.js")
+const updateUser = require("../../controllers/auth/updateUser.js")
+const deleteUser = require("../../controllers/auth/deleteUser.js")
+
+
+
 
 route.post("/register", register)
 route.post("/verifyotp", verifyOtp);
@@ -15,6 +20,7 @@ route.post("/resetPassword", resetPassword)
 route.post("/login", login)
 route.get("/getUsers", checkAuth, getUser)
 route.post("/addUser", checkAuth ,addUser)
-
+route.put("/updateUser/:id", updateUser)
+route.delete("/deleteUser/:id", deleteUser)
 
 module.exports = route
