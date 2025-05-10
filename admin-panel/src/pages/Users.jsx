@@ -20,6 +20,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [form] = Form.useForm();
@@ -47,34 +48,57 @@ const Users = () => {
   const handleAddUser = async (values) => {
     try {
       const token = localStorage.getItem("token");
+  
       const payload = {
-        ...values,
-        dob: values.dob.toISOString(),
-        confirmPassword: values.confirmPassword || values.password,
+        username: values.username,
+        dob: values.dob.toISOString(), // Convert dayjs object to ISO string
+        role: values.role,
       };
-
+  
       if (isEditMode && selectedUser) {
-        await axios.put(`http://localhost:5000/api/auth/updateUser/${selectedUser._id}`, payload, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        // Update existing user
+        await axios.put(
+          `http://localhost:5000/api/auth/updateUser/${selectedUser._id}`,
+          payload,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
         message.success("User updated successfully");
       } else {
-        await axios.post("http://localhost:5000/api/auth/addUser", payload, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        // Add new user
+        await axios.post(
+          "http://localhost:5000/api/auth/addUser",
+          {
+            ...payload,
+            email: values.email,
+            password: values.password,
+            confirmPassword: values.confirmPassword,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
         message.success("User added successfully");
       }
-
+  
       setIsModalVisible(false);
       form.resetFields();
       setIsEditMode(false);
       setSelectedUser(null);
-      fetchUsers();
+      fetchUsers(); // Refresh user list
     } catch (error) {
-      console.error("Error adding/updating user:", error);
+      console.error("Error saving user:", error);
       message.error(error?.response?.data?.message || "Failed to save user");
     }
   };
+  
 
   const openEditModal = (user) => {
     setIsEditMode(true);
@@ -88,6 +112,27 @@ const Users = () => {
     });
   };
 
+  const confirmDeleteUser = (user) => {
+    setSelectedUser(user);
+    setIsDeleteModalVisible(true);
+  };
+
+  const handleDelete = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      await axios.delete(`http://localhost:5000/api/auth/deleteUser/${selectedUser._id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      message.success("User deleted successfully");
+      setIsDeleteModalVisible(false);
+      setSelectedUser(null);
+      fetchUsers();
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      message.error(error?.response?.data?.message || "Failed to delete user");
+    }
+  };
+
   const columns = [
     { title: "Username", dataIndex: "username", key: "username" },
     { title: "Email", dataIndex: "email", key: "email" },
@@ -96,7 +141,10 @@ const Users = () => {
       title: "Actions",
       key: "actions",
       render: (_, record) => (
-        <Button onClick={() => openEditModal(record)}>Edit</Button>
+        <>
+          <Button type="link" onClick={() => openEditModal(record)}>Edit</Button>
+          <Button type="link" danger onClick={() => confirmDeleteUser(record)}>Delete</Button>
+        </>
       ),
     },
   ];
@@ -124,6 +172,7 @@ const Users = () => {
         <Table dataSource={users} columns={columns} rowKey="_id" />
       )}
 
+      {/* Add/Edit Modal */}
       <Modal
         title={isEditMode ? "Edit User" : "Add New User"}
         open={isModalVisible}
@@ -216,6 +265,22 @@ const Users = () => {
             </Select>
           </Form.Item>
         </Form>
+      </Modal>
+
+      {/* Custom Delete Confirmation Modal */}
+      <Modal
+        title="Confirm Delete"
+        open={isDeleteModalVisible}
+        onOk={handleDelete}
+        onCancel={() => {
+          setIsDeleteModalVisible(false);
+          setSelectedUser(null);
+        }}
+        okText="Yes, Delete"
+        okType="danger"
+        cancelText="Cancel"
+      >
+        <p>Are you sure you want to delete <strong>{selectedUser?.username}</strong>?</p>
       </Modal>
     </div>
   );
