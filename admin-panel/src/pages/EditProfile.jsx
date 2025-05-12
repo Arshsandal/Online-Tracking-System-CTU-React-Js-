@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Upload, Avatar, notification, Card, Typography } from 'antd';
+import { Form, Button, Upload, Avatar, notification, Card, Typography } from 'antd';
 import { UploadOutlined, UserOutlined } from '@ant-design/icons';
 import axiosInstance from "../../axiosInstance"; // Adjust path if needed
-import baseURL from "../../config"; // Adjust path if needed
+import baseURL from "../../config";  
 
 const { Title } = Typography;
 
@@ -23,20 +23,20 @@ const EditProfile = () => {
     setLoading(true);
     try {
       const formData = new FormData();
-      formData.append('username', values.username);
-      formData.append('password', values.password);
+      // Only append the image if there's one selected
       if (values.image && values.image.file) {
         formData.append('image', values.image.file.originFileObj);
       }
 
-      const response = await axiosInstance.put(`${baseURL}api/user/update-profile`, formData, {
+      const response = await axiosInstance.put(`${baseURL}api/auth/update-profile`, formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
-        },
+          'Content-Type': 'multipart/form-data',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
       });
 
       if (response.data.success) {
-        openNotificationWithIcon('success', 'Profile Updated', 'Your profile has been updated successfully!');
+        openNotificationWithIcon('success', 'Profile Updated', 'Your profile picture has been updated successfully!');
       } else {
         openNotificationWithIcon('error', 'Update Failed', response.data.message || 'Please try again.');
       }
@@ -64,20 +64,38 @@ const EditProfile = () => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#f0f2f5',
-      padding: '20px'
+      background: 'linear-gradient(to right, #74ebd5, #9face6)',  // Beautiful gradient background
+      padding: '20px 10px',
     }}>
       {contextHolder}
-      <Card style={{ width: 400, padding: 24, borderRadius: 12, boxShadow: '0 8px 24px rgba(0,0,0,0.15)' }}>
-        <div style={{ textAlign: 'center', marginBottom: 20 }}>
-          <Avatar
-            size={100}
-            icon={<UserOutlined />}
-            src={previewImage}
-            style={{ marginBottom: 10 }}
-          />
-          <Title level={3}>Edit Profile</Title>
-        </div>
+      <Card
+        style={{
+          width: '100%',
+          maxWidth: 420,
+          padding: '32px 24px',
+          borderRadius: '20px',
+          boxShadow: '0 12px 30px rgba(0, 0, 0, 0.1)',
+          backgroundColor: '#ffffff',
+          textAlign: 'center',
+          transform: 'scale(1)',
+          transition: 'transform 0.3s ease',
+        }}
+        hoverable
+        onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+        onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+      >
+        <Avatar
+          size={100}
+          icon={<UserOutlined />}
+          src={previewImage}
+          style={{
+            marginBottom: '20px',
+            border: '5px solid #1890ff',
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+            transition: 'all 0.3s ease',
+          }}
+        />
+        <Title level={3} style={{ color: '#333', marginBottom: '20px' }}>Edit Profile Picture</Title>
 
         <Form
           layout="vertical"
@@ -85,34 +103,33 @@ const EditProfile = () => {
           onFinish={handleFinish}
         >
           <Form.Item
-            label="Username"
-            name="username"
-            rules={[{ required: true, message: 'Please input your username!' }]}
-          >
-            <Input placeholder="Enter new username" size="large" />
-          </Form.Item>
-
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[{ required: true, message: 'Please input your new password!' }]}
-          >
-            <Input.Password placeholder="Enter new password" size="large" />
-          </Form.Item>
-
-          <Form.Item
-            label="Profile Image"
             name="image"
             valuePropName="file"
+            style={{ marginBottom: '20px' }}
           >
             <Upload
               listType="picture"
               maxCount={1}
               showUploadList={false}
-              beforeUpload={() => false}
+              beforeUpload={() => false} // Prevent auto upload
               onChange={handleUploadChange}
             >
-              <Button icon={<UploadOutlined />}>Upload Image</Button>
+              <Button
+                icon={<UploadOutlined />}
+                size="large"
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  borderRadius: '10px',
+                  fontWeight: 'bold',
+                  backgroundColor: '#1890ff',
+                  color: '#fff',
+                  border: 'none',
+                  transition: 'background-color 0.3s ease',
+                }}
+              >
+                Upload Profile Image
+              </Button>
             </Upload>
           </Form.Item>
 
@@ -123,8 +140,19 @@ const EditProfile = () => {
               block
               size="large"
               loading={loading}
+              style={{
+                padding: '14px',
+                borderRadius: '10px',
+                fontWeight: 'bold',
+                backgroundColor: '#1890ff',
+                color: '#fff',
+                border: 'none',
+                transition: 'background-color 0.3s ease',
+              }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = '#40a9ff'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = '#1890ff'}
             >
-              Update Profile
+              Update Profile Picture
             </Button>
           </Form.Item>
         </Form>

@@ -16,7 +16,7 @@ backend.use(cors({
 );
 
 backend.use(routes)
-
+backend.use("/uploads", express.static("uploads"));
 
 mongoose.connect(process.env.MONGO_DB_URI)
 .then(() => {
