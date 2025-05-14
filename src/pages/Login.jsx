@@ -10,6 +10,7 @@
   import Lottie from "lottie-react";
   import Animation from "../assets/Animations/Animation-Spinner.json"
   import baseURL from "../../config"
+  import { useGoogleLogin } from "@react-oauth/google";
 
   const Login = () => {
     const [loading, setLoading] = useState(false)
@@ -22,6 +23,64 @@
         description: description,
       });
     };
+
+
+const responseGoogle = async (authResult) => {
+  try {
+    if (authResult.code) {
+      const res = await axiosInstance.post(
+        `${baseURL}api/auth/google?code=${authResult.code}`
+      );
+
+      const { token, user, username, message, role, redirectTo } = res.data;
+
+      if (token && user) {
+        localStorage.setItem("accessToken", token);
+        localStorage.setItem("username", username);
+        localStorage.setItem("email", user.email); // same as email/password flow
+        localStorage.setItem("role", role || "user");
+        localStorage.setItem("user-info", JSON.stringify(user));
+
+        openNotificationWithIcon(
+          "success",
+          "Login Successful",
+          message || "You have successfully logged in using Google! 🎉"
+        );
+
+        setTimeout(() => {
+          navigate(redirectTo || "/home");
+        }, 1500);
+      } else {
+        openNotificationWithIcon(
+          "error",
+          "Login Failed",
+          message || "Google login failed. Please try again."
+        );
+      }
+    } else {
+      throw new Error("Missing authorization code from Google");
+    }
+  } catch (e) {
+    console.error("Error during Google Login:", e);
+    openNotificationWithIcon(
+      "error",
+      "Network Error",
+      "Unable to connect to the authentication server. Please check your internet."
+    );
+  }
+};
+
+
+
+
+
+  const googleLogin = useGoogleLogin({
+    onSuccess: responseGoogle,
+    onError: responseGoogle,
+    flow: "auth-code",
+  });
+
+
 
     const onFinish = async (values) => {
       console.log("Success:", values);
@@ -109,6 +168,19 @@
                 {loading? <Lottie animationData={Animation} className="h-6 w-6" /> :"Submit"}
               </Button>
             </Form.Item>
+
+
+            <button
+            onClick={googleLogin}
+            className="flex items-center justify-center gap-2 w-full text-[#000] bg-white border border-gray-300 rounded-md py-2 font-medium hover:bg-gray-100 transition mb-4"
+          >
+            <img
+              src="https://developers.google.com/identity/images/g-logo.png"
+              alt="G"
+              className="w-5 h-5"
+            />
+            Continue with Google
+          </button>
 
             {/* Add Forgot Password link */}
             <div className="text-center text-sm text-white mt-2">

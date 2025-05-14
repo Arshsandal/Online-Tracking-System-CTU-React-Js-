@@ -12,6 +12,7 @@ const deleteUser = require("../../controllers/auth/deleteUser.js")
 const upload = require("../../middlewares/Multer.js")
 const { updateProfile } = require('../../controllers/auth/updateProfile.js');
 const authMiddleware = require("../../middlewares/authMiddleware.js")
+const googleLogin = require("../../controllers/auth/googleLogin.js")
 
 
 route.post("/register", register)
@@ -24,5 +25,6 @@ route.post("/addUser", checkAuth ,addUser)
 route.put("/updateUser/:id", updateUser)
 route.delete("/deleteUser/:id", deleteUser)
 route.put('/updateProfile', authMiddleware , upload, updateProfile);
+route.post("/google", googleLogin)
 
 module.exports = route

@@ -22,13 +22,14 @@ import Support from "./pages/Support";
 import OnBoard from "./pages/OnBoard";
 import Safety from "./pages/Safety";
 import CustomerSatisfaction from "./pages/CustomerSatisfaction";
-import SchedulesAnsStops from "./pages/SchedulesAndStops";
 import SchedulesAndStops from "./pages/SchedulesAndStops";
 import ResetPassword from "./pages/ResetPassword";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const root = document.getElementById("root");
 
 ReactDOM.createRoot(root).render(
+  <GoogleOAuthProvider clientId="743224647060-758oau6o0ns1sjgv7fsjg8f9h0i85ve6.apps.googleusercontent.com">
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Register />} />
@@ -56,4 +57,5 @@ ReactDOM.createRoot(root).render(
       <Route path="/resetPAssword" element={<ResetPassword />} />
     </Routes>
   </BrowserRouter>
+  </GoogleOAuthProvider>
 );

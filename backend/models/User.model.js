@@ -8,7 +8,9 @@ const UserSchema = new Schema({
     },
     dob: {
         type: Date,
-        required: true
+        required: function () {
+          return !this.isGoogleUser; // Only required if not a Google user
+        },
     },
     email: {
         type: String,
@@ -17,12 +19,22 @@ const UserSchema = new Schema({
         trim: true,
         lowercase: true
     },
+    // password: {
+    //     type: String,
+    //     required: true,
+    //     minlength: 3,
+    //     maxlength: 100
+    // },
     password: {
         type: String,
-        required: true,
-        minlength: 3,
-        maxlength: 100
-    },
+        required: function () {
+          return !this.isGoogleUser; // Only required if not a Google user
+        },
+      },
+      isGoogleUser: {
+        type: Boolean,
+        default: false,
+      },
     remember: {
         type: Boolean,
         default: false
