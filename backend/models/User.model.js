@@ -28,13 +28,13 @@ const UserSchema = new Schema({
         default: false
     },
     profilePic: {
-    type: String,
-    default: '',
-  },
+        type: String,
+       
+    },
     role: {
         type: String,
         enum: ["user", "admin"],
-        default : "user"
+        default: "user"
     }
 });
 

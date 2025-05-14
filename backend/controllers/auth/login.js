@@ -10,7 +10,7 @@ const login = async (req, res, next) => {
     
     const { email, password } = loginResponse;
     const existingUser = await User.findOne({ email });
-
+// console.log(existingUser,"existingUser")
     if (!existingUser) {
       return res.status(200).json({
         success: false,
@@ -31,6 +31,8 @@ const login = async (req, res, next) => {
     const payload = {
       username: existingUser.username,
       email: existingUser.email,
+      userId : existingUser._id,
+       role: existingUser.role,
     };
 
     const accessToken = generateAccessToken(payload, accessSecret);
@@ -41,12 +43,8 @@ const login = async (req, res, next) => {
       success: true,
       message: "Login successfully 🎉",
       redirectTo: "/home",
-      payload: { 
-        username: existingUser.username, 
-        email: existingUser.email,
-        role: existingUser.role
-      },
-      token:accessToken
+      payload,
+      token:accessToken,
     });
 
   } catch (error) {

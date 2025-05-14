@@ -26,13 +26,18 @@ const Login = () => {
     try {
       const response = await axiosInstance.post(`${baseURL}api/auth/login`, values);
       if (response.data.success) {
+          console.log(response.data,'responseresponse')
+
         openNotificationWithIcon("success", "Login Successful", "You have successfully logged in! 🎉");
 
         if (response.data.payload) {
+          console.log(response.data.payload);
+          
           localStorage.setItem("email", response.data.payload.email);
           localStorage.setItem("role", response.data.payload.role);
           localStorage.setItem("username", response.data.payload.username);
           localStorage.setItem("token", response.data.token);
+          localStorage.setItem("userId", response.data.payload.userId);
         }
 
         setTimeout(() => {
