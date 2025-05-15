@@ -25,7 +25,7 @@ const googleLogin = async (req, res) => {
         email,
         username: name,
         password: "", 
-        image: picture,
+        profilePic: picture,
         isGoogleUser: true 
       });
     }
@@ -48,7 +48,7 @@ success: true,
       user: {
         email: user.email,
         name: user.username,
-        image: user.picture
+        profilePic: user.picture
       },
      username
     });
